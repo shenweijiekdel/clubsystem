@@ -6,6 +6,24 @@ package web2017.team9.domain;
 public class Photo {
     private int photoId;
     private String src;
+    private int photoAlbumId;
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "photoId=" + photoId +
+                ", src='" + src + '\'' +
+                ", photoAlbumId=" + photoAlbumId +
+                '}';
+    }
+
+    public int getPhotoAlbumId() {
+        return photoAlbumId;
+    }
+
+    public void setPhotoAlbumId(int photoAlbumId) {
+        this.photoAlbumId = photoAlbumId;
+    }
 
     public int getPhotoId() {
         return photoId;
