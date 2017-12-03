@@ -57,13 +57,12 @@ public class PictureController {
     }
 
     @RequestMapping("/backAddPhoto")
-    public ModelAndView addPhoto(HttpSession session, Model model,int albumId, @RequestParam MultipartFile  photo) {
+    public ModelAndView addPhoto(Model model,int albumId, @RequestParam MultipartFile  photo) {
 
 
         if (!photo.isEmpty()) {
             String filename = photo.getOriginalFilename();
             filename = filename.substring(filename.indexOf('.'));
-            session.getServletContext().getRealPath("");
             String path = this.getClass().getResource("/").getPath();
             path = path.replace("WEB-INF/classes", "images/album");
             filename = UUID.randomUUID().toString() + filename;
