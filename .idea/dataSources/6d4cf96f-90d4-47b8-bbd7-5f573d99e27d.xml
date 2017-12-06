@@ -234,13 +234,13 @@
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="70" parent="18" name="notice_time">
-      <Position>3</Position>
-      <DataType>date|0</DataType>
-    </column>
-    <column id="71" parent="18" name="notice_content">
+    <column id="70" parent="18" name="notice_content">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="71" parent="18" name="notice_date">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
     </column>
     <key id="72" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>

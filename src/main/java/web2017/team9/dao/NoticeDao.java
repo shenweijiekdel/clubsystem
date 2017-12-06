@@ -33,15 +33,16 @@ public class NoticeDao {
                 notice.setActivity(resultSet.getBoolean("is_activity"));
             }
         };
+        jdbcTemplate.query(sql,args,rowCallbackHandler);
         return notice;
     }
     public void addNotice(Notice notice){
-        String sql = "insert into t_notice(notice_id,notice_date,notice_contect,notice_title) values(?,?,?,?,?)";
-        Object[] args = new Object[]{notice.getNoticeId(),notice.getNoticeDate(),notice.getNoticeContent(),notice.getNoticeTitle()};
+        String sql = "insert into t_notice(notice_date,notice_content,notice_title) values(?,?,?)";
+        Object[] args = new Object[]{notice.getNoticeDate(),notice.getNoticeContent(),notice.getNoticeTitle()};
         jdbcTemplate.update(sql,args);
     }
     public void updateNotice(Notice notice){
-        String sql = "update t_notice set notice_date=?,notice_contect=?,notice_title=? where notice_id=?";
+        String sql = "update t_notice set notice_date=?,notice_content=?,notice_title=? where notice_id=?";
         Object[] args = new Object[]{notice.getNoticeDate(),notice.getNoticeContent(),notice.getNoticeTitle(),notice.getNoticeId()};
         jdbcTemplate.update(sql,args);
     }
@@ -55,8 +56,8 @@ public class NoticeDao {
         Object[] args = new Object[]{id};
         jdbcTemplate.update(sql,args);
     }
-    public void updateAllNoticeActivity(){
-        String sql = "update t_notice set is_activity=true";
+    public void updateAllNoticeNotActivity(){
+        String sql = "update t_notice set is_activity=false";
         jdbcTemplate.update(sql);
     }
     public List<Notice> getAllNotice(){
@@ -65,8 +66,9 @@ public class NoticeDao {
         RowMapper<List<Notice>> rowMapper = new RowMapper<List<Notice>>() {
             @Override
             public List<Notice> mapRow(ResultSet resultSet, int i) throws SQLException {
-                Notice notice = new Notice();
+
                 do {
+                    Notice notice = new Notice();
                     notice.setNoticeId(resultSet.getInt("notice_id"));
                     notice.setNoticeDate(resultSet.getDate("notice_date"));
                     notice.setNoticeContent(resultSet.getString("notice_content"));
@@ -77,7 +79,6 @@ public class NoticeDao {
                 return noticeList;
             }
         };
-        jdbcTemplate.query(sql,rowMapper);
-        return noticeList;
+        return jdbcTemplate.queryForObject(sql,rowMapper);
     }
 }

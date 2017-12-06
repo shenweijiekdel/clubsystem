@@ -53,8 +53,7 @@
                             <td>标题</td>
                             <td>时间</td>
                             <td>内容</td>
-                            <td>修改</td>
-                            <td>删除</td>
+                            <td colspan="3">操作</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -66,7 +65,16 @@
                                 <td>${notice.noticeDate}</td>
                                 <td>${notice.noticeContent}</td>
                                 <td><a href="/backUpdateNoticeJsp.html?noticeId=${notice.noticeId}" class="templatemo-edit-btn">修改</a></td>
-                                <td><a href="/backDeleteNoticeInfo.html?noticeId=${notice.noticeId}" class="templatemo-link">删除</a></td>
+                                <td><a href="/backDeleteNotice.html?noticeId=${notice.noticeId}" class="templatemo-link">删除</a></td>
+                                <td>
+                                    <c:if test="${notice.activity}">
+                                        活动公告
+                                    </c:if>
+                                    <c:if test="${!notice.activity}">
+                                        <a href="/backUpdateNoticeActivity.html?noticeId=${notice.noticeId}" class="templatemo-link">设为活动公告</a>
+                                    </c:if>
+
+                                </td>
                             </tr>
                         </c:forEach>
 
