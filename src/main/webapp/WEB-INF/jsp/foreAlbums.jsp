@@ -60,8 +60,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html" class="active">个人信息</a></li>
-						<li><a href="/forePictures.html">图库</a></li>
+						<li><a href="/foreUserInfo.html">个人信息</a></li>
+						<li><a href="/foreAlbums.html"  class="active">图库</a></li>
 						<li><a href="/foreBlog.html">留言板</a></li>
 
 					</ul>
@@ -84,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="gallery agileits">
 		<div class="container">
 			<div class="w3ls-title">
-				<h3>Our Gallery</h3> 
+				<h3>相册</h3>
 			</div>   
 			<div id="jzBox" class="jzBox">
 				<div id="jzBoxNextBig"></div>
@@ -100,99 +100,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<i class="close" id="jzBoxClose"></i>
 				</div>
 			</div>
-			<div class="gallery-grids-row">
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g1.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g1.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
+
+				<div class="gallery-grids-row">
+					<c:forEach items="${albums}" var="album">
+					<div class="col-md-4 gallery-grid">
+
+						<div class="wpf-demo-4">
+							<a href="/forePhotos.html?albumId=${album.id}" class="jzBoxLink item-hover" title="Trendy Furnish">
+								<img src="images/g1.jpg" alt=" " class="img-responsive" />
+								<div class="view-caption">
+									<p>查看相册</p>
+								</div>
+							</a>
+							<h3>${album.name}</h3>
+						</div>
+
+
 					</div>
+					</c:forEach>
+					<div class="clearfix"> </div>
 				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g2.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g2.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g3.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g3.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g4.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g4.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g5.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g5.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g6.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g6.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g7.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g7.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g3.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g3.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>  
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g1.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g1.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
+
+
 			<script src="js/jzBox.js"></script>
 		</div>
 	</div>

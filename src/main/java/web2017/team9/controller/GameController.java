@@ -37,7 +37,11 @@ public class GameController {
         dateFormat.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
-    @RequestMapping("/index")
+    @RequestMapping("/foreIndex")
+    public ModelAndView foreIndex(){
+        return new ModelAndView("foreIndex");
+    }
+    @RequestMapping("/backIndex")
     public ModelAndView addGamePage(Model model) {
 //        List<Game> gameList = gameService.getAllGames();
 //        model.addAttribute("gameList",gameList);
