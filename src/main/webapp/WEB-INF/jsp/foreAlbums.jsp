@@ -18,22 +18,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
-<link href="fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- js -->
-<script src="fore/js/jquery-1.11.1.min.js"></script>
-<script src="fore/js/SmoothScroll.min.js"></script>
+<script src="/fore/js/jquery-1.11.1.min.js"></script>
+<script src="/fore/js/SmoothScroll.min.js"></script>
 <!-- //js -->
 <!-- web-fonts --> 
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="fore/js/move-top.js"></script>
-<script type="text/javascript" src="fore/js/easing.js"></script>
+<script type="text/javascript" src="/fore/js/move-top.js"></script>
+<script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
+			$(".scroll").click(function(event){
 				event.preventDefault();
 		
 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
@@ -85,7 +85,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<div class="w3ls-title">
 				<h3>相册</h3>
-			</div>   
+			</div>
+			<%--</div>
 			<div id="jzBox" class="jzBox">
 				<div id="jzBoxNextBig"></div>
 				<div id="jzBoxPrevBig"></div>
@@ -99,8 +100,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<i class="close" id="jzBoxClose"></i>
 				</div>
-			</div>
-
+			</div>--%>
 				<div class="gallery-grids-row">
 					<c:forEach items="${albums}" var="album">
 					<div class="col-md-4 gallery-grid">
@@ -112,17 +112,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<p>查看相册</p>
 								</div>
 							</a>
-							<h3>${album.name}</h3>
-						</div>
 
+						</div>
+						<h3 style="text-align: center">${album.name}</h3>
 
 					</div>
+
 					</c:forEach>
 					<div class="clearfix"> </div>
 				</div>
 
 
-			<script src="js/jzBox.js"></script>
+			<%--<script src="/fore/js/jzBox.js"></script>--%>
 		</div>
 	</div>
 	<!-- //gallery --> 

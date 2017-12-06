@@ -18,19 +18,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
-<link href="fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- js -->
-<script src="fore/js/jquery-1.11.1.min.js"></script>
-<script src="fore/js/SmoothScroll.min.js"></script>
+<script src="/fore/js/jquery-1.11.1.min.js"></script>
+<script src="/fore/js/SmoothScroll.min.js"></script>
 <!-- //js -->
 <!-- web-fonts --> 
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="fore/js/move-top.js"></script>
-<script type="text/javascript" src="fore/js/easing.js"></script>
+<script type="text/javascript" src="/fore/js/move-top.js"></script>
+<script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -86,20 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="w3ls-title">
 				<h3 >照片</h3>
 			</div>   
-			<div id="jzBox" class="jzBox">
-				<div id="jzBoxNextBig"></div>
-				<div id="jzBoxPrevBig"></div>
-				<img src="#" id="jzBoxTargetImg" alt=""/>
-				<div id="jzBoxBottom">
-					<div id="jzBoxTitle"></div>
-					<div id="jzBoxMoreItems">
-						<div id="jzBoxCounter"></div>
-						<i class="arrow-left" id="jzBoxPrev"></i> 
-						<i class="arrow-right" id="jzBoxNext"></i> 
-					</div>
-					<i class="close" id="jzBoxClose"></i>
-				</div>
-			</div>
+
 
 				<div class="gallery-grids-row">
 					<c:if test="${empty photos}" var="flag">
@@ -107,9 +94,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</c:if>
 					<c:if test="${!flag}">
 					<c:forEach items="${photos}" var="photo">
+						<div id="jzBox" class="jzBox">
+							<div id="jzBoxNextBig"></div>
+							<div id="jzBoxPrevBig"></div>
+							<img src="/images/album/${photo.src}" id="jzBoxTargetImg" alt=""/>
+							<div id="jzBoxBottom">
+								<div id="jzBoxTitle"></div>
+								<div id="jzBoxMoreItems">
+									<div id="jzBoxCounter"></div>
+									<i class="arrow-left" id="jzBoxPrev"></i>
+									<i class="arrow-right" id="jzBoxNext"></i>
+								</div>
+								<i class="close" id="jzBoxClose"></i>
+							</div>
+						</div>
 					<div class="col-md-4 gallery-grid">
 						<div class="wpf-demo-4">
-							<a href="/images/album/${photo.src}" class="jzBoxLink item-hover" title="Trendy Furnish">
+							<a href="/images/album/${photo.src}" class="jzBoxLink item-hover" title="${photo.src}">
 								<img src="/images/album/${photo.src}" alt=" " class="img-responsive" />
 								<div class="view-caption">
 									<p>查看大图</p>
@@ -117,12 +118,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</a>
 						</div>
 					</div>
+
 					</c:forEach>
 					</c:if>
 					<div class="clearfix"> </div>
 				</div>
 
-			<script src="js/jzBox.js"></script>
+			<script src="/fore/js/jzBox.js"></script>
 		</div>
 	</div>
 	<!-- //gallery --> 
@@ -174,6 +176,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <script src="/fore/js/bootstrap.js"></script>
 </body>
 </html>

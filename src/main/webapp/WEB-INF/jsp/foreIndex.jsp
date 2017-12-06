@@ -18,21 +18,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
-<link href="fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="fore/css/style.css" type="text/css" rel="stylesheet" media="all">
-<link rel="stylesheet" href="fore/css/flexslider.css" type="text/css" media="screen" />
+<link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link rel="stylesheet" href="/fore/css/flexslider.css" type="text/css" media="screen" />
 <!-- js -->
-<script src="fore/js/jquery-1.11.1.min.js"></script>
-<script src="fore/js/SmoothScroll.min.js"></script>
-<script src="fore/js/jquery.circlechart.js"></script>
+<script src="/fore/js/jquery-1.11.1.min.js"></script>
+<script src="/fore/js/SmoothScroll.min.js"></script>
+<script src="/fore/js/jquery.circlechart.js"></script>
 <!-- //js -->
 <!-- web-fonts --> 
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="fore/js/move-top.js"></script>
-<script type="text/javascript" src="fore/js/easing.js"></script>
+<script type="text/javascript" src="/fore/js/move-top.js"></script>
+<script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -147,7 +147,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div> 
 			</section>
 			<!-- FlexSlider -->
-			<script defer src="js/jquery.flexslider.js"></script>
+			<script defer src="/fore/js/jquery.flexslider.js"></script>
 			<script type="text/javascript">
 			$(window).load(function() {
 			  $('.flexslider').flexslider({
@@ -252,6 +252,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="fore/js/bootstrap.js"></script>
+    <script src="/fore/js/bootstrap.js"></script>
 </body>
 </html>

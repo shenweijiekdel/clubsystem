@@ -3,7 +3,7 @@
 <html>
 <head>
     <script>
-        top.location.href="/foreIndex.html";
+        top.location.href="/foreLoginjsp.html";
     </script>
 </head>
 <body>

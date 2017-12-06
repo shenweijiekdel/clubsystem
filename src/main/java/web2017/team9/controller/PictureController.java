@@ -53,13 +53,11 @@ public class PictureController {
     public ModelAndView foreAlbums(Model model) {
         List<Album> albums = pictureService.findAll();
         model.addAttribute("albums",albums);
-
         return new ModelAndView("foreAlbums");
     }
     @RequestMapping("/forePhotos")
     public ModelAndView forePhotos(Model model,int albumId) {
         List<Photo> photos = pictureService.findPhotosByAlbumId(albumId);
-        System.out.println(photos);
         model.addAttribute("photos",photos);
 
         return new ModelAndView("forePhotos");
