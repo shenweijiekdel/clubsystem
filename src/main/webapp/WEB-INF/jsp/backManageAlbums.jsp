@@ -16,13 +16,13 @@
     -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet'
           type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-style.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/templatemo-style.css" rel="stylesheet">
 
-    <link href="css/gallery.css" rel="stylesheet" type="text/css"/>
-    <link href="css/facebox.css" rel="stylesheet" type="text/css"/>
-    <link href="css/tabs.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/gallery.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/facebox.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/tabs.css" rel="stylesheet" type="text/css"/>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -302,16 +302,19 @@
                                     <c:forEach items="${albums}" var="album">
                                         <li data-type="buildings" data-id="g001">
 
-                                            <a href="#" class="delete">delete</a> <a href="#">edit</a>
-                                            <a href="img/gallery/image_01.jpg"
-                                            >view</a>
+                                            <a href="#" class="delete">delete</a>
+                                            <a href="#" class="edit">edit</a>
+                                            <a href="/images/album/item2.jpg" class="view">view</a>
 
                                             <a href="/backManagePhoto.html?albumId=${album.id}" class="popup">
                                                 <img src="/images/album/item2.jpg" alt=""/>
-
                                             </a>
-                                            <div>${album.name}</div>
+                                            <div>${album.name}
+
+                                            </div>
+
                                         </li>
+
                                     </c:forEach>
                                 </c:if>
 
@@ -329,8 +332,8 @@
 </div>
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
-<script type="text/javascript" src="js/templatemo-script.js"></script>      <!-- Templatemo Script -->
+<script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>      <!-- jQuery -->
+<script type="text/javascript" src="/js/templatemo-script.js"></script>      <!-- Templatemo Script -->
 <script>
     $(document).ready(function () {
         // Content widget with background image

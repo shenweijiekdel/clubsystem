@@ -13,6 +13,17 @@ public class Message {
     private Date time;
     private List<Comment> commentList;
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "messageId=" + messageId +
+                ", content='" + content + '\'' +
+                ", member=" + member +
+                ", time=" + time +
+                ", commentList=" + commentList +
+                '}';
+    }
+
     public int getMessageId() {
         return messageId;
     }
