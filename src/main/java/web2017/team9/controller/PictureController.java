@@ -1,7 +1,5 @@
 package web2017.team9.controller;
 
-import javafx.application.Application;
-import jdk.nashorn.internal.runtime.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +11,6 @@ import web2017.team9.domain.Album;
 import web2017.team9.domain.Photo;
 import web2017.team9.service.PictureService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,7 +49,19 @@ public class PictureController {
         model.addAttribute("albumId",albumId);
         return new ModelAndView("backAddPhoto");
     }
+    @RequestMapping("/foreAlbums")
+    public ModelAndView foreAlbums(Model model) {
+        List<Album> albums = pictureService.findAll();
+        model.addAttribute("albums",albums);
+        return new ModelAndView("foreAlbums");
+    }
+    @RequestMapping("/forePhotos")
+    public ModelAndView forePhotos(Model model,int albumId) {
+        List<Photo> photos = pictureService.findPhotosByAlbumId(albumId);
+        model.addAttribute("photos",photos);
 
+        return new ModelAndView("forePhotos");
+    }
     @RequestMapping("/backAddPhoto")
     public ModelAndView addPhoto(Model model,int albumId, @RequestParam MultipartFile  photo) {
 

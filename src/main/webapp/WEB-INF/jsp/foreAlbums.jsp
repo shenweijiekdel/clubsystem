@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ringster a Sports Category Flat Bootstrap Responsive Website Template | Contact  :: w3layouts</title>
+<title>Ringster a Sports Category Flat Bootstrap Responsive Website Template | Gallery :: w3layouts</title>
 <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,7 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event){		
+			$(".scroll").click(function(event){
 				event.preventDefault();
 		
 		$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
@@ -54,14 +54,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a  href="index.html">Ringster</a></h1>
+					<h1><a  href="index.index.jsp">Ringster</a></h1>
 				</div>
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html" class="active">个人信息</a></li>
-						<li><a href="/forePictures.html">图库</a></li>
+						<li><a href="/foreUserInfo.html">个人信息</a></li>
+						<li><a href="/foreAlbums.html"  class="active">图库</a></li>
 						<li><a href="/foreBlog.html">留言板</a></li>
 
 					</ul>
@@ -75,39 +75,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner about-banner">		 
 		<div class="container"> 
 			<div class="banner-text">	 
-				<h2>How To Find Us</h2>
+				<h2>Latest Photos</h2>
 			</div> 
 		</div> 
 	</div>		
 	<!-- //banner -->
-	<!-- contact -->
-	<div class="contact agileits">
+	<!-- gallery -->
+	<div class="gallery agileits">
 		<div class="container">
 			<div class="w3ls-title">
-				<h3>Contact Us</h3> 
-			</div>   
-			<div class="contact-grids">
-				<div class="col-md-7 contact-form">
-					<form action="#" method="post">
-						<input type="text" name="Name" placeholder="Name" required="">
-						<input class="email" type="text" name="Email" placeholder="Email" required="">
-						<textarea placeholder="Message" name="Message" required=""></textarea>
-						<input type="submit" value="SUBMIT">
-					</form>
-				</div>
-				<div class="col-md-4 contact-right">
-					<div class="contact-text">
-						<h4>Working Hours :</h4>
-						<p> Monday – Saturday 5:00 a.m – 9:00 p.m </p>
-						<p>	Sunday 10 a.m – 4 p.m </p>
-						<p><span class="glyphicon glyphicon-earphone"></span> +11 999 8888 7777 </p> 
-					</div> 
-				</div> 
-				<div class="clearfix"> </div>	
+				<h3>相册</h3>
 			</div>
+			<%--</div>
+			<div id="jzBox" class="jzBox">
+				<div id="jzBoxNextBig"></div>
+				<div id="jzBoxPrevBig"></div>
+				<img src="#" id="jzBoxTargetImg" alt=""/>
+				<div id="jzBoxBottom">
+					<div id="jzBoxTitle"></div>
+					<div id="jzBoxMoreItems">
+						<div id="jzBoxCounter"></div>
+						<i class="arrow-left" id="jzBoxPrev"></i> 
+						<i class="arrow-right" id="jzBoxNext"></i> 
+					</div>
+					<i class="close" id="jzBoxClose"></i>
+				</div>
+			</div>--%>
+				<div class="gallery-grids-row">
+					<c:forEach items="${albums}" var="album">
+					<div class="col-md-4 gallery-grid">
+
+						<div class="wpf-demo-4">
+							<a href="/forePhotos.html?albumId=${album.id}" class="jzBoxLink item-hover" title="Trendy Furnish">
+								<img src="images/g1.jpg" alt=" " class="img-responsive" />
+								<div class="view-caption">
+									<p>查看相册</p>
+								</div>
+							</a>
+
+						</div>
+						<h3 style="text-align: center">${album.name}</h3>
+
+					</div>
+
+					</c:forEach>
+					<div class="clearfix"> </div>
+				</div>
+
+
+			<%--<script src="/fore/js/jzBox.js"></script>--%>
 		</div>
 	</div>
-	<!-- //contact --> 
+	<!-- //gallery --> 
 	<!-- map -->
 	<div class="map">  
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe>
@@ -132,7 +151,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
-			<h3><a href="index.html">Ringster</a></h3>  
+			<h3><a href="index.index.jsp">Ringster</a></h3>
 			<p>© 2016 Ringster . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
 		</div>
 	</div>
@@ -156,6 +175,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/fore/js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></script>
 </body>
 </html>

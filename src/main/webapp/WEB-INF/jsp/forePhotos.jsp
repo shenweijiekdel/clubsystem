@@ -18,19 +18,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
-<link href="fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- js -->
-<script src="fore/js/jquery-1.11.1.min.js"></script>
-<script src="fore/js/SmoothScroll.min.js"></script>
+<script src="/fore/js/jquery-1.11.1.min.js"></script>
+<script src="/fore/js/SmoothScroll.min.js"></script>
 <!-- //js -->
 <!-- web-fonts --> 
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="fore/js/move-top.js"></script>
-<script type="text/javascript" src="fore/js/easing.js"></script>
+<script type="text/javascript" src="/fore/js/move-top.js"></script>
+<script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -60,8 +60,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html" class="active">个人信息</a></li>
-						<li><a href="/forePictures.html">图库</a></li>
+						<li><a href="/foreUserInfo.html">个人信息</a></li>
+						<li><a href="/foreAlbums.html"  class="active">图库</a></li>
 						<li><a href="/foreBlog.html">留言板</a></li>
 
 					</ul>
@@ -84,116 +84,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="gallery agileits">
 		<div class="container">
 			<div class="w3ls-title">
-				<h3>Our Gallery</h3> 
+				<h3 >照片</h3>
 			</div>   
-			<div id="jzBox" class="jzBox">
-				<div id="jzBoxNextBig"></div>
-				<div id="jzBoxPrevBig"></div>
-				<img src="#" id="jzBoxTargetImg" alt=""/>
-				<div id="jzBoxBottom">
-					<div id="jzBoxTitle"></div>
-					<div id="jzBoxMoreItems">
-						<div id="jzBoxCounter"></div>
-						<i class="arrow-left" id="jzBoxPrev"></i> 
-						<i class="arrow-right" id="jzBoxNext"></i> 
+
+
+				<div class="gallery-grids-row">
+					<c:if test="${empty photos}" var="flag">
+						<h2 style="text-align: center">现在还没有任何照片</h2>
+					</c:if>
+					<c:if test="${!flag}">
+					<c:forEach items="${photos}" var="photo">
+						<div id="jzBox" class="jzBox">
+							<div id="jzBoxNextBig"></div>
+							<div id="jzBoxPrevBig"></div>
+							<img src="/images/album/${photo.src}" id="jzBoxTargetImg" alt=""/>
+							<div id="jzBoxBottom">
+								<div id="jzBoxTitle"></div>
+								<div id="jzBoxMoreItems">
+									<div id="jzBoxCounter"></div>
+									<i class="arrow-left" id="jzBoxPrev"></i>
+									<i class="arrow-right" id="jzBoxNext"></i>
+								</div>
+								<i class="close" id="jzBoxClose"></i>
+							</div>
+						</div>
+					<div class="col-md-4 gallery-grid">
+						<div class="wpf-demo-4">
+							<a href="/images/album/${photo.src}" class="jzBoxLink item-hover" title="${photo.src}">
+								<img src="/images/album/${photo.src}" alt=" " class="img-responsive" />
+								<div class="view-caption">
+									<p>查看大图</p>
+								</div>
+							</a>
+						</div>
 					</div>
-					<i class="close" id="jzBoxClose"></i>
+
+					</c:forEach>
+					</c:if>
+					<div class="clearfix"> </div>
 				</div>
-			</div>
-			<div class="gallery-grids-row">
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g1.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g1.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g2.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g2.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g3.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g3.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g4.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g4.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g5.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g5.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g6.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g6.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g7.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g7.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    			
-					</div>
-				</div>
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g3.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g3.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>  
-				<div class="col-md-4 gallery-grid">
-					<div class="wpf-demo-4">  
-						<a href="images/g1.jpg" class="jzBoxLink item-hover" title="Trendy Furnish">  
-							<img src="images/g1.jpg" alt=" " class="img-responsive" />
-							<div class="view-caption">
-								<p>Full View</p>
-							</div> 
-						</a>    		
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<script src="js/jzBox.js"></script>
+
+			<script src="/fore/js/jzBox.js"></script>
 		</div>
 	</div>
 	<!-- //gallery --> 
@@ -245,6 +176,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <script src="/fore/js/bootstrap.js"></script>
 </body>
 </html>

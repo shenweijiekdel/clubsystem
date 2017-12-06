@@ -18,19 +18,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Custom Theme files -->
-<link href="fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-<link href="fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
 <!-- js -->
-<script src="fore/js/jquery-1.11.1.min.js"></script>
-<script src="fore/js/SmoothScroll.min.js"></script>
+<script src="/fore/js/jquery-1.11.1.min.js"></script>
+<script src="/fore/js/SmoothScroll.min.js"></script>
 <!-- //js -->
 <!-- web-fonts --> 
 <link href='//fonts.googleapis.com/css?family=Baumans' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 <!-- //web-fonts -->
 <!-- start-smooth-scrolling -->
-<script type="text/javascript" src="fore/js/move-top.js"></script>
-<script type="text/javascript" src="fore/js/easing.js"></script>
+<script type="text/javascript" src="/fore/js/move-top.js"></script>
+<script type="text/javascript" src="/fore/js/easing.js"></script>
 <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -60,9 +60,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html" class="active">个人信息</a></li>
-						<li><a href="/forePictures.html">图库</a></li>
-						<li><a href="/foreBlog.html">留言板</a></li>
+						<li><a href="/foreUserInfo.html">个人信息</a></li>
+						<li><a href="/foreAlbums.html">图库</a></li>
+						<li><a href="/foreBlog.html"  class="active">留言板</a></li>
 
 					</ul>
 					<div class="clearfix"> </div>	
@@ -75,7 +75,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner about-banner">		 
 		<div class="container"> 
 			<div class="banner-text">	 
-				<h2>Featured Blogs</h2>
+				<h2>留言板</h2>
+
 			</div> 
 		</div> 
 	</div>		
@@ -266,6 +267,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <script src="/fore/js/bootstrap.js"></script>
 </body>
 </html>
