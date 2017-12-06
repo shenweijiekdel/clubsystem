@@ -1,319 +1,343 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="club@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
     <root id="1"/>
     <schema id="2" parent="1" name="club">
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
     <schema id="3" parent="1" name="ballotsystem"/>
-    <schema id="4" parent="1" name="information_schema"/>
-    <schema id="5" parent="1" name="mysql"/>
-    <schema id="6" parent="1" name="test"/>
-    <schema id="7" parent="1" name="vote"/>
-    <schema id="8" parent="1" name="clubsystem"/>
-    <schema id="9" parent="1" name="easymall"/>
-    <schema id="10" parent="1" name="examsystem"/>
-    <schema id="11" parent="1" name="game"/>
-    <schema id="12" parent="1" name="logistical_manager"/>
-    <schema id="13" parent="1" name="performance_schema"/>
-    <schema id="14" parent="1" name="sys"/>
-    <table id="15" parent="2" name="t_blue"/>
-    <table id="16" parent="2" name="t_comment"/>
-    <table id="17" parent="2" name="t_fundinfo"/>
-    <table id="18" parent="2" name="t_game"/>
-    <table id="19" parent="2" name="t_member"/>
-    <table id="20" parent="2" name="t_message"/>
-    <table id="21" parent="2" name="t_photo"/>
-    <table id="22" parent="2" name="t_photoalbum"/>
-    <table id="23" parent="2" name="t_red"/>
-    <table id="24" parent="2" name="t_type"/>
-    <column id="25" parent="15" name="blue_id">
-      <Position>1</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="26" parent="15" name="member_name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="27" parent="15" name="blue_name">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="28" parent="15" name="blue_firstscore">
-      <Position>4</Position>
-      <DataType>int(11)|0</DataType>
-    </column>
-    <column id="29" parent="15" name="blue_secondscore">
+    <schema id="4" parent="1" name="db_tushu2"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="practice"/>
+    <schema id="8" parent="1" name="sampledb"/>
+    <schema id="9" parent="1" name="test"/>
+    <schema id="10" parent="1" name="vote"/>
+    <schema id="11" parent="1" name="webgroup3"/>
+    <table id="12" parent="2" name="t_blue"/>
+    <table id="13" parent="2" name="t_comment"/>
+    <table id="14" parent="2" name="t_fundinfo"/>
+    <table id="15" parent="2" name="t_game"/>
+    <table id="16" parent="2" name="t_member"/>
+    <table id="17" parent="2" name="t_message"/>
+    <table id="18" parent="2" name="t_notice"/>
+    <table id="19" parent="2" name="t_photo"/>
+    <table id="20" parent="2" name="t_photoalbum"/>
+    <table id="21" parent="2" name="t_red"/>
+    <table id="22" parent="2" name="t_type"/>
+    <column id="23" parent="12" name="blue_secondscore">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="30" parent="15" name="blue_thirdscore">
+    <column id="24" parent="12" name="blue_thirdscore">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="31" parent="15" name="blue_total">
+    <column id="25" parent="12" name="member_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="12" name="blue_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="27" parent="12" name="blue_firstscore">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="28" parent="12" name="blue_id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="12" name="blue_total">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="32" parent="15" name="blue_status">
+    <column id="30" parent="12" name="blue_status">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="33" parent="15" name="PRIMARY">
+    <key id="31" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>blue_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="34" parent="16" name="comment_id">
+    <column id="32" parent="13" name="comment_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="16" name="content">
+    <column id="33" parent="13" name="content">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="36" parent="16" name="member_id">
+    <column id="34" parent="13" name="member_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="37" parent="16" name="time">
+    <column id="35" parent="13" name="time">
       <Position>4</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="38" parent="16" name="message_id">
+    <column id="36" parent="13" name="message_id">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="39" parent="16" name="PRIMARY">
+    <key id="37" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>comment_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="40" parent="17" name="fundinfo_id">
+    <column id="38" parent="14" name="fundinfo_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="41" parent="17" name="items">
+    <column id="39" parent="14" name="items">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="42" parent="17" name="cost">
+    <column id="40" parent="14" name="cost">
       <Position>3</Position>
       <DataType>float|0</DataType>
     </column>
-    <column id="43" parent="17" name="time">
+    <column id="41" parent="14" name="time">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="44" parent="17" name="PRIMARY">
+    <key id="42" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>fundinfo_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="45" parent="18" name="game_id">
+    <column id="43" parent="15" name="game_id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="46" parent="18" name="title">
+    <column id="44" parent="15" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="47" parent="18" name="address">
+    <column id="45" parent="15" name="address">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="48" parent="18" name="time">
+    <column id="46" parent="15" name="time">
       <Position>4</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="49" parent="18" name="blue_id">
+    <column id="47" parent="15" name="blue_id">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="50" parent="18" name="red_id">
+    <column id="48" parent="15" name="red_id">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="51" parent="18" name="type_id">
+    <column id="49" parent="15" name="type_id">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="52" parent="18" name="PRIMARY">
+    <key id="50" parent="15" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>game_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="53" parent="19" name="member_id">
+    <column id="51" parent="16" name="member_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="54" parent="19" name="member_name">
+    <column id="52" parent="16" name="member_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="55" parent="19" name="password">
+    <column id="53" parent="16" name="password">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="56" parent="19" name="sex">
+    <column id="54" parent="16" name="sex">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="57" parent="19" name="age">
+    <column id="55" parent="16" name="age">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="58" parent="19" name="ID_number">
+    <column id="56" parent="16" name="ID_number">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="59" parent="19" name="address">
+    <column id="57" parent="16" name="address">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="60" parent="19" name="tel">
+    <column id="58" parent="16" name="tel">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="61" parent="19" name="avatar">
+    <column id="59" parent="16" name="avatar">
       <Position>9</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="62" parent="19" name="money">
+    <column id="60" parent="16" name="money">
       <Position>10</Position>
       <DataType>float|0</DataType>
     </column>
-    <column id="63" parent="19" name="weight">
+    <column id="61" parent="16" name="weight">
       <Position>11</Position>
       <DataType>float|0</DataType>
     </column>
-    <key id="64" parent="19" name="PRIMARY">
+    <key id="62" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>member_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="65" parent="20" name="message_id">
+    <column id="63" parent="17" name="message_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="66" parent="20" name="content">
+    <column id="64" parent="17" name="content">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="67" parent="20" name="member_id">
+    <column id="65" parent="17" name="member_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="68" parent="20" name="time">
+    <column id="66" parent="17" name="time">
       <Position>4</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <key id="69" parent="20" name="PRIMARY">
+    <key id="67" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>message_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="70" parent="21" name="photo_id">
+    <column id="68" parent="18" name="notice_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="71" parent="21" name="src">
+    <column id="69" parent="18" name="notice_title">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="72" parent="21" name="photoalbum_id">
+    <column id="70" parent="18" name="notice_time">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="71" parent="18" name="notice_content">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="72" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>notice_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="73" parent="19" name="photo_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="74" parent="19" name="src">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="75" parent="19" name="photoalbum_id">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <key id="73" parent="21" name="PRIMARY">
+    <key id="76" parent="19" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>photo_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="74" parent="22" name="photoalbum_id">
+    <column id="77" parent="20" name="photoalbum_id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="75" parent="22" name="photoalbum_name">
+    <column id="78" parent="20" name="photoalbum_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="76" parent="22" name="PRIMARY">
+    <key id="79" parent="20" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>photoalbum_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="77" parent="23" name="red_id">
+    <column id="80" parent="21" name="red_id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="78" parent="23" name="red_name">
+    <column id="81" parent="21" name="red_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="79" parent="23" name="member_name">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="80" parent="23" name="red_firstscore">
+    <column id="82" parent="21" name="red_firstscore">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="81" parent="23" name="red_secondscore">
+    <column id="83" parent="21" name="red_secondscore">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="82" parent="23" name="red_thirdscore">
+    <column id="84" parent="21" name="red_thirdscore">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="83" parent="23" name="red_total">
+    <column id="85" parent="21" name="member_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="86" parent="21" name="red_total">
       <Position>7</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="84" parent="23" name="red_status">
+    <column id="87" parent="21" name="red_status">
       <Position>8</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="85" parent="23" name="PRIMARY">
+    <key id="88" parent="21" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>red_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="86" parent="24" name="type_id">
+    <column id="89" parent="22" name="type_id">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="87" parent="24" name="up">
+    <column id="90" parent="22" name="up">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="88" parent="24" name="down">
+    <column id="91" parent="22" name="down">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="89" parent="24" name="type_name">
+    <column id="92" parent="22" name="type_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="90" parent="24" name="PRIMARY">
+    <key id="93" parent="22" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>type_id</ColNames>
       <Primary>1</Primary>

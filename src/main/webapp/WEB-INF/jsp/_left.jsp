@@ -24,6 +24,7 @@
     <nav class="templatemo-left-nav">
         <ul>
             <li><a href="/backManageUsers.html"><i class="fa fa-users fa-fw"></i>用户管理</a></li>
+            <li><a href="/backManageNotices.html"><i class="fa fa-users fa-fw"></i>公告管理</a></li>
             <li><a href="/backManageGames.html"><i class="fa fa-users fa-fw"></i>比赛记录管理</a></li>
             <li><a href="/backManageFund.html"><i class="fa fa-users fa-fw"></i>经费管理</a></li>
             <li><a href="/backManageAlbums.html"><i class="fa fa-users fa-fw"></i>相册管理</a></li>
