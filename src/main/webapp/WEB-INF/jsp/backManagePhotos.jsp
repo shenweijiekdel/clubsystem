@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-         pageEncoding="utf-8" isELIgnored="false" %>
+         pageEncoding="utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +41,7 @@
             <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                     <ul class="text-uppercase">
-                        <li><a href="/backAddPhotoJsp.html?albumId=${albumId}" class="active">添加相片</a></li>
+                        <li><a href="/backAddPhotoJsp.html?albumId=${albumId}">添加相片</a></li>
                         <li><a href="/backManageAlbums.html" class="active">返回上一页</a></li>
                     </ul>
                 </nav>

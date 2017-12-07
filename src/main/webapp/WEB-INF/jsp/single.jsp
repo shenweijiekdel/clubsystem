@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: FSWJ
@@ -58,12 +59,11 @@
             <!-- top-nav -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="codes.html">Short Codes</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="/foreIndex.html">首页</a></li>
+                    <li><a href="/foreUserInfo.html">个人信息</a></li>
+                    <li><a href="/foreAlbums.html">图库</a></li>
+                    <li><a href="/foreBlog.html"  class="active">留言板</a></li>
+
                 </ul>
                 <div class="clearfix"> </div>
             </div>
@@ -85,21 +85,14 @@
     <div class="container">
         <div class="blog-info">
             <div class="blog-img">
-                <img src="images/s1.jpg" alt=" " class="img-responsive" />
+                <img src="../../images/s1.jpg" alt=" " class="img-responsive" />
             </div>
             <div class="blog-text">
                 <h4>Integer interdum eros vitae sem ultrices sed eleifend tellus tincidunt</h4>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur,Duis aute irure dolor in quis nostrud exercitation ullamco
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur</p>
+                <p>${message.content}</p>
                 <div class="article-links">
                     <ul>
-                        <li><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span>June 30, 2016</span></li>
+                        <li><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span>${message.time}</span></li>
                         <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span>Admin</span></a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>No comments</span></a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i><span>View posts</span></a></li>
@@ -112,7 +105,7 @@
         <div class="admin-text">
             <h5>Written By Admin</h5>
             <div class="admin-text-left">
-                <a href="#"><img src="images/icon1.png" alt=""/></a>
+                <a href="#"><img src="../../images/icon1.png" alt=""/></a>
             </div>
             <div class="admin-text-right">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
@@ -127,25 +120,25 @@
             <h3>Related Posts</h3>
             <div class="col-xs-3 col-md-3 related-grids">
                 <a href="single.html" class="thumbnail">
-                    <img src="images/g1.jpg" alt=""/>
+                    <img src="../../images/g1.jpg" alt=""/>
                 </a>
                 <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
             </div>
             <div class="col-xs-3 col-md-3 related-grids">
                 <a href="single.html" class="thumbnail">
-                    <img src="images/g2.jpg" alt=""/>
+                    <img src="../../images/g2.jpg" alt=""/>
                 </a>
                 <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
             </div>
             <div class="col-xs-3 col-md-3 related-grids">
                 <a href="single.html" class="thumbnail">
-                    <img src="images/g3.jpg" alt=""/>
+                    <img src="../../images/g3.jpg" alt=""/>
                 </a>
                 <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
             </div>
             <div class="col-xs-3 col-md-3 related-grids">
                 <a href="single.html" class="thumbnail">
-                    <img src="images/g4.jpg" alt=""/>
+                    <img src="../../images/g4.jpg" alt=""/>
                 </a>
                 <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
             </div>
@@ -153,46 +146,38 @@
         <!-- //related-posts -->
         <!-- comments -->
         <div class="comment-grid-top">
-            <h3>Responses</h3>
+            <h3>评论</h3>
+            <c:forEach items="${message.commentList}" var="comment">
+
+
             <div class="comments-top-top">
                 <div class="top-comment-left">
-                    <a href="#"><img class="img-responsive" src="images/icon1.png" alt=""></a>
+                    <a href="#"><img class="img-responsive" src="../../images/icon1.png" alt=""></a>
                 </div>
                 <div class="top-comment-right">
                     <ul>
                         <li><span class="left-at"><a href="#">Admin</a></span></li>
-                        <li><span class="right-at">July 12, 2016 at 10.30am</span></li>
-                        <li><a class="reply" href="#">Reply</a></li>
+                        <li><span class="right-at">${comment.time}</span></li>
+                        <li><a class="reply" href="#">回复</a></li>
                     </ul>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less </p>
+                    <p>${comment.content}</p>
                 </div>
                 <div class="clearfix"> </div>
             </div>
-            <div class="comments-top-top top-grid-comment">
-                <div class="top-comment-left">
-                    <a href="#"><img class="img-responsive" src="images/icon1.png" alt=""></a>
-                </div>
-                <div class="top-comment-right">
-                    <ul>
-                        <li><span class="left-at"><a href="#">Admin</a></span></li>
-                        <li><span class="right-at">June 15, 2016 at 8.30pm</span></li>
-                        <li><a class="reply" href="#">Reply</a></li>
-                    </ul>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less </p>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
+            </c:forEach>
         </div>
         <!-- //comments -->
         <div class="article-commentbox">
-            <h3>Leave a comment</h3>
+            <h3>回复</h3>
             <div class="table-form">
-                <form action="#" method="post">
-                    <input type="text" name="Name" placeholder="Name" required="">
+                <form action="/addComment.html" method="post">
+
+                    <input type="hidden" name="messageId" value="${message.messageId}">
+                    <%--<input type="text" name="Name" placeholder="Name" required="">
                     <input class="email" name="Email" type="text" placeholder="Email" required="">
-                    <input type="text" name="Number" placeholder="Mobile Number" required="">
-                    <textarea name="Message" placeholder="Message" required=""></textarea>
-                    <input type="submit" value="SUBMIT">
+                    <input type="text" name="Number" placeholder="Mobile Number" required="">--%>
+                    <textarea name="content" placeholder="评论内容" required=""></textarea>
+                    <input type="submit" value="发表评论">
                 </form>
             </div>
         </div>

@@ -44,4 +44,30 @@ public class MessageDao {
             return null;
         }
     }
+
+    public Message findMessageById(int messageId) {
+        try {
+
+
+            return jdbcTemplate.queryForObject("select * from t_message where message_id=?", new RowMapper<Message>() {
+                @Override
+                public Message mapRow(ResultSet resultSet, int i) throws SQLException {
+                    Message message = new Message();
+                    message.setMessageId(resultSet.getInt(1));
+                    message.setContent(resultSet.getString(2));
+                    Member member = new Member();
+                    member.setMemberId(resultSet.getInt(3));
+                    message.setMember(member);
+                    message.setTime(resultSet.getDate(4));
+                    return message;
+                }
+            },messageId);
+        }catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
+
+    public int deleteById(int messageId) {
+        return jdbcTemplate.update("DELETE from t_message WHERE message_id=?",messageId);
+    }
 }
