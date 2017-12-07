@@ -41,4 +41,13 @@ public class FundInfoService {
     public void deleteFundInfoById(int fundInfoId){
         fundDao.deleteFundInfoById(fundInfoId);
     }
+    public List<FundInfo> getAllStatusFundInfo(String status){
+        List<FundInfo> fundInfoList;
+        try {
+            fundInfoList = fundDao.getAllStatusFundInfo(status);
+        }catch (Exception e){
+            fundInfoList = null;
+        }
+         return fundInfoList;
+    }
 }

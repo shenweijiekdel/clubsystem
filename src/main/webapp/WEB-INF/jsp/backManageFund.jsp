@@ -38,6 +38,8 @@
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
                 <li><a href="/backAddFundInfoJsp.html" class="active">增加经费信息</a></li>
+                <li><a href="/backExpendFundInfo.html?status=支出" class="active">支出信息</a></li>
+                <li><a href="/backIncomeFundInfo.html?status=收入" class="active">收入信息</a></li>
 
               </ul>
             </nav>
@@ -51,7 +53,8 @@
                 <tr>
                   <td>序号</td>
                   <td>时间</td>
-                  <td>花费</td>
+                  <td>金额</td>
+                  <td>类型</td>
                   <td>备注</td>
                   <td>修改</td>
                   <td>删除</td>
@@ -64,6 +67,7 @@
                     <td><%=i++%></td>
                     <td>${fundInfo.time}</td>
                     <td>${fundInfo.cost}</td>
+                    <td>${fundInfo.status}</td>
                     <td>${fundInfo.items}</td>
                     <td><a href="/backUpdateFundInfoJsp.html?fundinfoId=${fundInfo.fundinfoId}" class="templatemo-edit-btn">修改</a></td>
                     <td><a href="/backDeleteFundInfo.html?fundinfoId=${fundInfo.fundinfoId}" class="templatemo-link">删除</a></td>

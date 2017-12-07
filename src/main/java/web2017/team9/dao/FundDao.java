@@ -36,6 +36,7 @@ public class FundDao {
                 fundInfo.setCost(resultSet.getFloat("cost"));
                 fundInfo.setTime(resultSet.getDate("time"));
                 fundInfo.setItems(resultSet.getString("items"));
+                fundInfo.setStatus(resultSet.getString("status"));
             }
         });
         return fundInfo;
@@ -57,6 +58,7 @@ public class FundDao {
                     fundInfo.setCost(resultSet.getFloat("cost"));
                     fundInfo.setTime(resultSet.getDate("time"));
                     fundInfo.setItems(resultSet.getString("items"));
+                    fundInfo.setStatus(resultSet.getString("status"));
                     fundInfoList.add(fundInfo);
                 }while(resultSet.next());
                 return fundInfoList;
@@ -70,8 +72,8 @@ public class FundDao {
      * @param fundInfo
      */
     public void addFundInfo(FundInfo fundInfo){
-        String sql = "insert into t_fundinfo(items,cost,time) values(?,?,?)";
-        Object[] args = new Object[]{fundInfo.getItems(),fundInfo.getCost(),fundInfo.getTime()};
+        String sql = "insert into t_fundinfo(items,cost,time,status) values(?,?,?,?)";
+        Object[] args = new Object[]{fundInfo.getItems(),fundInfo.getCost(),fundInfo.getTime(),fundInfo.getStatus()};
         jdbcTemplate.update(sql,args);
     }
 
@@ -80,8 +82,8 @@ public class FundDao {
      * @param fundInfo
      */
     public void updateFundInfo(FundInfo fundInfo){
-        String sql = "update t_fundinfo set items=?,cost=?,time=? where fundinfo_id=?";
-        Object[] args = new Object[]{fundInfo.getItems(),fundInfo.getCost(),fundInfo.getTime(),fundInfo.getFundinfoId()};
+        String sql = "update t_fundinfo set items=?,cost=?,time=?,status=? where fundinfo_id=?";
+        Object[] args = new Object[]{fundInfo.getItems(),fundInfo.getCost(),fundInfo.getTime(),fundInfo.getStatus(),fundInfo.getFundinfoId()};
         jdbcTemplate.update(sql,args);
     }
 
@@ -93,5 +95,26 @@ public class FundDao {
         String sql = "delete from t_fundinfo where fundinfo_id=?";
         Object[] args = new Object[]{fundInfoId};
         jdbcTemplate.update(sql,args);
+    }
+    public List<FundInfo> getAllStatusFundInfo(String status){
+        String sql = "select * from t_fundinfo WHERE status=?";
+        Object[] args = new Object[]{status};
+        final List<FundInfo> fundInfoList = new ArrayList<FundInfo>();
+        RowMapper<List> rowMapper = new RowMapper<List>() {
+            @Override
+            public List mapRow(ResultSet resultSet, int i) throws SQLException {
+                do {
+                    FundInfo fundInfo = new FundInfo();
+                    fundInfo.setFundinfoId(resultSet.getInt("fundinfo_id"));
+                    fundInfo.setCost(resultSet.getFloat("cost"));
+                    fundInfo.setItems(resultSet.getString("items"));
+                    fundInfo.setTime(resultSet.getDate("time"));
+                    fundInfo.setStatus(resultSet.getString("status"));
+                    fundInfoList.add(fundInfo);
+                }while(resultSet.next());
+                return fundInfoList;
+            }
+        };
+        return jdbcTemplate.queryForObject(sql,args,rowMapper);
     }
 }
