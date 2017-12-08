@@ -107,9 +107,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 						<div class="wpf-demo-4">
 							<a href="/forePhotos.html?albumId=${album.id}" class="jzBoxLink item-hover" title="Trendy Furnish">
-								<img src="images/g1.jpg" alt=" " class="img-responsive" />
+
+								<div class="row">
+									<div class="col-md-6" style="padding: 0px">
+								<img src="${album.photos.size() >= 1?'/images/album/'.concat(album.photos.get(0).src):'images/g1.jpg'}" alt=" " class="img-responsive" />
+								<img src="${album.photos.size() >= 2?'/images/album/'.concat(album.photos.get(1).src):'images/g1.jpg'}" alt=" " class="img-responsive"/>
+
+									</div>
+									<div class="col-md-6" style="padding: 0px">
+										<img src="${album.photos.size() >= 3?'/images/album/'.concat(album.photos.get(2).src) :'images/g1.jpg'}" alt=" " class="img-responsive" />
+										<img src="${album.photos.size() >= 4?'/images/album/'.concat(album.photos.get(3).src) :'images/g1.jpg'}" alt=" " class="img-responsive"/>
+
+									</div>
+								</div>
+
 								<div class="view-caption">
 									<p>查看相册</p>
+
 								</div>
 							</a>
 

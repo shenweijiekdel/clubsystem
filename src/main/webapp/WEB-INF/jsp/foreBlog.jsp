@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <%@ page contentType="text/html;charset=UTF-8" language="java"
-		 pageEncoding="utf-8" isELIgnored="false"%>
+		 pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -99,10 +99,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 			<a href="/foreAddMessageJsp.html" class="btn btn-default">添加留言</a>
 			</div>
-			<c:forEach items="${messages}" var="message">
+
 
 
 			<div class="blog-info">
+				<c:if test="${empty messages}" var="flag">
+					<div align="center">
+
+					<h3>目前没有任何留言</h3>
+					</div>
+				</c:if>
+				<c:if test="${!flag}">
+
+
+				<c:forEach items="${messages}" var="message">
 				<div class="col-md-6 blog-grids">
 					<div class="blog-grids-left">
 						<a href="single.html">
@@ -111,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="blog-w3text">
 							<ul>
 								<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><br><h6>30K Likes</h6></a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-comment"></span><br><h6>10K Comments</h6> </a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-comment"></span><br><h6>${empty message.commentList ? 0:message.commentList.size()}评论</h6> </a></li>
 								<li><a href="#"><span class="glyphicon glyphicon-share"></span><br><h6>8K Shares</h6> </a></li>
 							</ul>
 						</div>
@@ -119,14 +129,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="blog-grids-right">
 						<h4><a href="single.html">标题</a></h4>
 						<p class="snglp">用户 : <a href="#"> Admin</a> &nbsp;&nbsp;on  <span>${message.time}</span></p>
-						<p>${message.content}</p>
-						<a href="single.html" class="more">查看更多 <span class="glyphicon glyphicon-menu-right"></span> </a>
+						<p>${message.content.length() > 10?message.content.substring(0,10):message.content}</p>
+						<a href="/foreSingle.html?messageId=${message.messageId}" class="more">查看更多 <span class="glyphicon glyphicon-menu-right"></span> </a>
 					</div>	
 					<div class="clearfix"> </div>			
 				</div>
+
+				</c:forEach>
+				</c:if>
 				<div class="clearfix"> </div>
+
 			</div>
-			</c:forEach>
+
 		</div>
 	</div>
 	<!-- //blog -->  

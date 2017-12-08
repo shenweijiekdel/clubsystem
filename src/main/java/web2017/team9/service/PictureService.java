@@ -25,7 +25,13 @@ public class PictureService {
     private PictureDao pictureDao;
 
     public List<Album> findAll() {
-        return pictureDao.findAllAlbum();
+        List<Album> albums =  pictureDao.findAllAlbum();
+        for (Album album:albums
+             ) {
+            album.setPhotos(pictureDao.findPhotosByAlbumId(album.getId()));
+
+        }
+        return albums;
     }
 
     public int createAlbum(String name) {
