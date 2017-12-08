@@ -6,17 +6,29 @@ import java.util.Date;
  * Created by WSF on 2017/11/18.
  */
 public class Comment {
-    private int comment_id;
+    private int commentId;
     private String content;
     private Member member;
     private Date time;
+    private int messageId;
 
-    public int getComment_id() {
-        return comment_id;
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", content='" + content + '\'' +
+                ", member=" + member +
+                ", time=" + time +
+                ", messageId=" + messageId +
+                '}';
     }
 
-    public void setComment_id(int comment_id) {
-        this.comment_id = comment_id;
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
     }
 
     public String getContent() {
@@ -41,5 +53,13 @@ public class Comment {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public int getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(int messageId) {
+        this.messageId = messageId;
     }
 }

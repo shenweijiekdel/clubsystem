@@ -38,7 +38,7 @@
           <div class="row">
             <nav class="templatemo-top-nav col-lg-12 col-md-12">
               <ul class="text-uppercase">
-                <li><a href="/backAddGameJsp.html" class="active">增加比赛记录</a></li>
+                <li><a href="/backAddGameJsp.html">增加比赛记录</a></li>
           
               </ul>  
             </nav> 
