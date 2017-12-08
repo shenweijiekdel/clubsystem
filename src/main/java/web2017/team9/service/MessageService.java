@@ -22,6 +22,7 @@ public class MessageService {
 @Transactional
     public List<Message> findAllMessage() {
         List<Message> messages = messageDao.findAll();
+        if(messages != null)
         for (Message msg:messages
              ) {
             msg.setCommentList(commentDao.findCommentByMid(msg.getMessageId()));

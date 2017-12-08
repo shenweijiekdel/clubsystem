@@ -26,6 +26,7 @@ public class PictureService {
 
     public List<Album> findAll() {
         List<Album> albums =  pictureDao.findAllAlbum();
+        if (albums != null)
         for (Album album:albums
              ) {
             album.setPhotos(pictureDao.findPhotosByAlbumId(album.getId()));
@@ -39,6 +40,7 @@ public class PictureService {
     }
 
     public List<Photo> findPhotosByAlbumId(int albumId) {
+
         return pictureDao.findPhotosByAlbumId(albumId);
     }
 @Transactional
