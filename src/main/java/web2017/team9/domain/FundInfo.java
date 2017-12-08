@@ -10,6 +10,26 @@ public class FundInfo {
     private String items;
     private float cost;
     private Date time;
+    private String status;
+
+    @Override
+    public String toString() {
+        return "FundInfo{" +
+                "fundinfoId=" + fundinfoId +
+                ", items='" + items + '\'' +
+                ", cost=" + cost +
+                ", time=" + time +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getFundinfoId() {
         return fundinfoId;

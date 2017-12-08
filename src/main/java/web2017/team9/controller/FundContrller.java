@@ -76,4 +76,19 @@ public class FundContrller {
         model.addAttribute("fundInfoList",fundInfoList);
         return new ModelAndView("backManageFund");
     }
+    @RequestMapping(value = "backExpendFundInfo")
+    public ModelAndView backExpendFundInfo(HttpServletRequest request,Model model){
+        String status = request.getParameter("status");
+        List<FundInfo> fundInfoList = fundInfoService.getAllStatusFundInfo(status);
+        model.addAttribute("fundInfoList",fundInfoList);
+        return  new ModelAndView("backExpendFundInfo");
+    }
+
+    @RequestMapping(value = "backIncomeFundInfo")
+    public ModelAndView backIncomeFundInfo(HttpServletRequest request,Model model){
+        String status = request.getParameter("status");
+        List<FundInfo> fundInfoList = fundInfoService.getAllStatusFundInfo(status);
+        model.addAttribute("fundInfoList",fundInfoList);
+        return  new ModelAndView("backIncomeFundInfo");
+    }
 }

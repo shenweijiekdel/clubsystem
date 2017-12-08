@@ -51,8 +51,13 @@
               <div class="col-lg-6 col-md-6 form-group">
                 <label >时间</label>
                 <input type="date" class="form-control" name="time">
-                <label >花费</label>
+                <label >金额</label>
                 <input type="text" class="form-control" name="cost">
+                <br>
+                <input type="radio" name="status" id="1" value="收入" checked>
+                <label for="1"  class="font-weight-400"><span></span>收入</label>
+                <input id="2" type="radio" name="status"  value="支出">
+                <label for="2" class="font-weight-400"><span></span>支出</label>
               </div>
             </div>
             <div class="row form-group">

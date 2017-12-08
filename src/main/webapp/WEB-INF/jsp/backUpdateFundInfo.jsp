@@ -52,8 +52,18 @@
                 <input type="hidden" value="${fundInfo.fundinfoId}" name="fundinfoId">
                 <label >时间</label>
                 <input type="date" class="form-control" name="time" value="${fundInfo.time}">
-                <label >花费</label>
+                <label >金额</label>
                 <input type="text" class="form-control" name="cost" value="${fundInfo.cost}">
+                <br>
+
+                <input type="radio" name="status" id="1" value="收入" <c:if test="${fundInfo.status eq '收入'}">
+                       checked="checked"
+                </c:if>  >
+                <label for="1"  class="font-weight-400"><span></span>收入</label>
+                <input id="2" type="radio" name="status"  value="支出" <c:if test="${fundInfo.status eq '支出'}">
+                checked="checked"
+                </c:if>>
+                <label for="2" class="font-weight-400"><span></span>支出</label>
               </div>
             </div>
             <div class="row form-group">

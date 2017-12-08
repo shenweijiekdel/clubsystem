@@ -8,8 +8,5 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by WSF on 2017/11/19.
  */
 public class UserController {
-    @RequestMapping("/foreLoginJsp")
-    public ModelAndView login(Model model){
-        return new ModelAndView("foreLogin");
-    }
+
 }
