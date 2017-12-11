@@ -104,7 +104,7 @@
 	        </form>
 		</div>
 		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>没有账号？ <strong><a href="/beforeForeRegister.html" class="blue-text">立即注册</a></strong></p>
+			<p>没有账号？ <strong><a href="/beforeForeRegister.html" class="blue-text">立即注册</a> </strong> 您是管理员？ <strong><a href="/foreAdminLogin.html"  class="blue-text">管理员登录</a></strong></p>
 		</div>
 	</body>
 </html>

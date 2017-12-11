@@ -65,4 +65,14 @@ public class MessageService {
     public int deleteCommentByCid(int commentId) {
         return commentDao.deleteById(commentId);
     }
+
+    public List<Message> findMessageByMemId(int memberId) {
+        List<Message> messages = messageDao.findMessageByMemId(memberId);
+        if(messages != null)
+            for (Message msg:messages
+                    ) {
+                msg.setCommentList(findCommentByMid(msg.getMessageId()));
+                msg.setMember(memberDao.getMemberByMemberId(msg.getMember().getMemberId()));
+            }        return messages;
+    }
 }

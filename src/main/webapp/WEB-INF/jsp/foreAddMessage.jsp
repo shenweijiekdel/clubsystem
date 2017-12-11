@@ -94,7 +94,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>   
 			<div class="contact-grids">
 				<div class="col-md-7 contact-form">
-					<form action="/foreAddMessage.html" method="post">
+					<form action="/foreBlog.html" method="post">
 						<%--<input type="text" name="title" placeholder="标题" required="">--%>
 						<textarea placeholder="内容" name="content" required=""></textarea>
 						<input type="submit" value="提交">

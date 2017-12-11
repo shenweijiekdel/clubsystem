@@ -66,14 +66,14 @@ public class NoticeController {
         model.addAttribute("noticeList",noticeList);
         return new ModelAndView("backManageNotices");
     }
-    @RequestMapping("/foreIndex")
+   /* @RequestMapping("/foreIndex")
     public ModelAndView foreIndex(Model model, HttpSession session){
-        if (session.getAttribute("member") == null)
-            return new ModelAndView("redirect:foreLogin.html");
+  *//*      if (session.getAttribute("member") == null)
+            return new ModelAndView("redirect:foreLogin.html");*//*
        List<Notice> notices =   noticeService.getNoticeActivitied();
 
        model.addAttribute("notices",notices);
         System.out.println(notices);
         return new ModelAndView("foreIndex");
-    }
+    }*/
 }

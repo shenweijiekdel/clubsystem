@@ -20,6 +20,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //Custom Theme files -->
 <link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
+	<link href="/css2/font-awesome.min.css" rel="stylesheet">
+	<link href="/css/templatemo-style.css" rel="stylesheet">
 <!-- js -->
 <script src="/fore/js/jquery-1.11.1.min.js"></script>
 <script src="/fore/js/SmoothScroll.min.js"></script>
@@ -67,7 +69,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<li><a href="/foreIndex.html" style="font-family: '微软雅黑'">首页</a></li>
 						<li><a href="/foreUserInfo.html" style="font-family: '微软雅黑'">个人信息</a></li>
 						<li><a href="/foreAlbums.html" style="font-family: '微软雅黑'">图库</a></li>
-						<li><a href="/foreBlog.html"  class="active" style="font-family: '微软雅黑'">留言板</a></li>
+						<li><a href="/foreBlog.html"   style="font-family: '微软雅黑'">留言板</a></li>
 
 					</ul>
 					<div class="clearfix"> </div>	
@@ -77,74 +79,113 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<!-- //header -->
 	<!-- banner -->
-	<div class="banner about-banner">		 
-		<div class="container"> 
-			<div class="banner-text">	 
-				<h2>留言板</h2>
-
-			</div>
-
-		</div>
-
-	</div>		
-	<!-- //banner -->
-	<!-- blog -->
-	<div class="blog agileits">
+	<div class="banner about-banner">
 		<div class="container">
-			<div class="w3ls-title">
-				<a href="/foreBlog.html"><h3>全部留言</h3></a>
-
+			<div class="banner-text">
+				<h2>比赛详情</h2>
 			</div>
-			<div style="text-align: right">
-
-			<a href="/foreAddMessageJsp.html" class="btn btn-default">添加留言</a>
-			<a href="/foreBlogMine.html" class="btn btn-default">我的留言</a>
-			</div>
-
-
-
-			<div class="blog-info">
-				<c:if test="${empty messages}" var="flag">
-					<div align="center">
-
-					<h3>目前没有任何留言</h3>
-					</div>
-				</c:if>
-				<c:if test="${!flag}">
-
-
-				<c:forEach items="${messages}" var="message">
-				<div class="col-md-6 blog-grids">
-					<div class="blog-grids-left">
-						<a href="/foreSingle.html?messageId=${message.messageId}">
-							<img src="../../images/avatar/${message.member.avatar}" class="img-responsive" alt=""/>
-						</a>
-						<div class="blog-w3text">
-							<ul>
-								<%--<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><br><h6>30K Likes</h6></a></li>--%>
-								<li><a href="#"><span class="glyphicon glyphicon-comment"></span><br><h6>${empty message.commentList ? 0:message.commentList.size()}评论</h6> </a></li>
-								<%--<li><a href="#"><span class="glyphicon glyphicon-share"></span><br><h6>8K Shares</h6> </a></li>--%>
-							</ul>
-						</div>
-					</div>
-					<div class="blog-grids-right">
-						<%--<h4><a href="single.html">标题</a></h4>--%>
-						<p class="snglp">用户 : <a href="#">${message.member.memberName}</a> &nbsp;&nbsp;on  <span>${message.time}</span></p>
-						<p>${message.content.length() > 10?message.content.substring(0,10):message.content}</p>
-						<a href="/foreSingle.html?messageId=${message.messageId}" class="more">查看更多 <span class="glyphicon glyphicon-menu-right"></span> </a>
-					</div>	
-					<div class="clearfix"> </div>			
-				</div>
-
-				</c:forEach>
-				</c:if>
-				<div class="clearfix"> </div>
-
-			</div>
-
 		</div>
 	</div>
-	<!-- //blog -->  
+	<div style="text-align: center">
+
+	<div class="templatemo-flex-row flex-content-row">
+		<div class="templatemo-content-widget white-bg col-2">
+			<i class="fa fa-times"></i>
+			<div class="media margin-bottom-30">
+				<div class="media-left padding-right-25">
+					<a href="#">
+						<img class="media-object img-circle templatemo-img-bordered" src="../../images/avatar/${redMember.avatar}" alt="这是头像">
+					</a>
+				</div>
+				<div class="media-body">
+					<h2 class="media-heading text-uppercase blue-text">${game.red.redMemberName}</h2>
+					<h6>${game.red.redName}</h6>
+				</div>
+
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<tbody>
+					<tr>
+						<td><div class="circle pink-bg"></div></td>
+						<td>第一局比分</td>
+						<td>${game.red.redFirstScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle pink-bg"></div></td>
+						<td>第二局比分</td>
+						<td>${game.red.redSecondScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle pink-bg"></div></td>
+						<td>第三局比分</td>
+						<td>${game.red.redThirdScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle pink-bg"></div></td>
+						<td>总分</td>
+						<td>${game.red.redTotal}</td>
+					</tr>
+					<tr>
+						<td><div class="circle pink-bg"></div></td>
+						<td>结果</td>
+						<td>${game.red.redStatus}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="templatemo-flex-row flex-content-row">
+		<div class="templatemo-content-widget white-bg col-2">
+			<i class="fa fa-times"></i>
+			<div class="media margin-bottom-30">
+				<div class="media-left padding-right-25">
+					<a href="#">
+						<img class="media-object img-circle templatemo-img-bordered" src="../../images/avatar/${blueMember.avatar}" alt="这是头像">
+					</a>
+				</div>
+				<div class="media-body">
+					<h2 class="media-heading text-uppercase blue-text">${game.blue.blueMemberName}</h2>
+					<h6>${game.blue.blueName}</h6>
+				</div>
+
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<tbody>
+					<tr>
+						<td><div class="circle blue-bg"></div></td>
+						<td>第一局比分</td>
+						<td>${game.blue.blueFirstScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle blue-bg"></div></td>
+						<td>第二局比分</td>
+						<td>${game.blue.blueSecondScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle blue-bg"></div></td>
+						<td>第三局比分</td>
+						<td>${game.blue.blueThirdScore}</td>
+					</tr>
+					<tr>
+						<td><div class="circle blue-bg"></div></td>
+						<td>总分</td>
+						<td>${game.blue.blueTotal}</td>
+					</tr>
+					<tr>
+						<td><div class="circle blue-bg"></div></td>
+						<td>结果</td>
+						<td>${game.blue.blueStatus}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</div>
+	<!-- //blog -->
 	<!-- map -->
 	<!-- //map -->
 	<!-- footer -->

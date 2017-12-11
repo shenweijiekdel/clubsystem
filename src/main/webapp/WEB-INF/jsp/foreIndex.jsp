@@ -50,6 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //end-smooth-scrolling -->	
 </head>
 <body>
+<% int i=1;%>
 	<!-- header -->
 	<div class="header">
 		<div class="container">
@@ -176,16 +177,69 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 		</div>
 	</div>
-	<!-- //banner -->	
-	<!-- skills -->
-	 -->
-	<!-- slid -->
+	<div class="slid">
+		<div class="container">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<h3>最近比赛记录</h3>
+							<p>让我们查看一下最近的比赛记录</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- FlexSlider -->
+			<script defer src="/fore/js/jquery.flexslider.js"></script>
+			<script type="text/javascript">
+                $(window).load(function() {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        controlsContainer: $(".custom-controls-container"),
+                        customDirectionNav: $(".custom-navigation a")
+                    });
+                });
+			</script>
+			<!-- //FlexSlider -->
+		</div>
+	</div>
+	<div class="bs-docs-example" style="text-align: center">
+		<table class="table">
+			<thead>
+			<tr>
+				<td>序号</td>
+				<td>标题</td>
+				<td>时间</td>
+				<td>地点</td>
+				<td>级别</td>
+				<td>详细信息</td>
+			</tr>
+			</thead>
+			<tbody>
+			<c:if test="${empty gameList || gameList.size() == 0}" var="flag">
+				<tr>
+					<td align="center" colspan="6">
+						<h3>目前没有任何比赛</h3>
+					</td>
+				</tr>
+			</c:if>
+			<c:if test="${!flag}">
 
-	<!-- //slid --> 
-	<!-- features -->
+			<c:forEach items="${gameList}" var="game">
+				<tr>
+					<td><%=i++%></td>
+					<td>${game.title}</td>
+					<td>${game.time}</td>
+					<td>${game.address}</td>
+					<td>${game.type.typeName}</td>
+					<td><a href="/foreDetailGames.html?gameId=${game.gameId}" class="btn btn-default">详细信息</a></td>
+				</tr>
+			</c:forEach>
+			</c:if>
 
-	<!-- //features --> 
-	<!-- subscribe -->
+			</tbody>
+		</table>
+	</div>
 	<div class="subscribe">
 		<div class="container">
 			<div class="subscribe-info">
@@ -207,7 +261,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
-			<h3><a href="index.index.jsp">Ringster</a></h3>
+			<h3><a href="/foreIndex.html">拳击俱乐部</a></h3>
 			<p>© 2016 Ringster . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
 		</div>
 	</div>

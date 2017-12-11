@@ -111,7 +111,7 @@
 	        </header>
 
 	        <form action="/foreRegister.html" method="post" id="form">
-				<input name="avatar" value="icon1.png">
+				<input type="hidden" name="avatar" value="icon1.png">
 	        	<div class="form-group" style=" text-align: center">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>

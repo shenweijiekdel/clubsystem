@@ -25,6 +25,13 @@ public class BlogController {
         model.addAttribute("messages",messages);
         return new ModelAndView("foreBlog");
     }
+    @RequestMapping("/foreBlogMine")
+    public ModelAndView foreBlogMine(Model model,HttpSession session){
+Member member = (Member) session.getAttribute("member");
+        List<Message> messages  = messageService.findMessageByMemId(member.getMemberId());
+        model.addAttribute("messages",messages);
+        return new ModelAndView("foreBlog");
+    }
     @RequestMapping("/foreAddMessageJsp")
     public ModelAndView foreAddMessageJsp(Model model){
         return new ModelAndView("foreAddMessage");

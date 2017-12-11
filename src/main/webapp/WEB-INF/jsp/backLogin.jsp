@@ -32,19 +32,20 @@
 	          <div class="square"></div>
 	          <h1>管理员登录</h1>
 	        </header>
-	        <form action="index.backIndex.jsp" class="templatemo-login-form">
+	        <form action="/adminCheck.html" class="templatemo-login-form">
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>	        		
-		              	<input type="text" class="form-control" placeholder="js@dashboard.com">           
+		              	<input type="text" class="form-control" placeholder="用户名" name="adminName">
 		          	</div>	
 	        	</div>
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>	        		
-		              	<input type="password" class="form-control" placeholder="******">           
+		              	<input type="password" class="form-control" placeholder="密码" name="password">
 		          	</div>	
-	        	</div>	          	
+	        	</div>
+				<span style="text-align: center;color: red">${error}</span>
 	          	<div class="form-group">
 				    <div class="checkbox squaredTwo">
 				        <input type="checkbox" id="c1" name="cc" />

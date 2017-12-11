@@ -44,11 +44,11 @@ public class GameController {
 //        List<Game> gameList = gameService.getAllGames();
 //        model.addAttribute("gameList",gameList);
 //        return new ModelAndView("backManageGames");
-        List<Type> typeList = gameService.getAllType();
+      /*  List<Type> typeList = gameService.getAllType();
         List<Member> memberList = memberService.getAllMembers();
         model.addAttribute("typeList",typeList);
-        model.addAttribute("memberList",memberList);
-        return new ModelAndView("backAddGame");
+        model.addAttribute("memberList",memberList);*/
+        return new ModelAndView("backIndex");
     }
     @RequestMapping("/backAddGame")
     public ModelAndView addGame(Model model, Game game,Red red,Blue blue,Type type){
@@ -118,6 +118,17 @@ public class GameController {
         model.addAttribute("redMember",redMember);
         model.addAttribute("blueMember",blueMember);
         return new ModelAndView("backDetailGames");
+    }
+    @RequestMapping(value = "foreDetailGames")
+    public ModelAndView foreDetailGames(Model model,HttpServletRequest request){
+        String gameId = request.getParameter("gameId");
+        Game game = gameService.getGameByGameId(gameId);
+        Member redMember = memberService.getMemberByMemberName(game.getRed().getRedMemberName());
+        Member blueMember = memberService.getMemberByMemberName(game.getBlue().getBlueMemberName());
+        model.addAttribute("game",game);
+        model.addAttribute("redMember",redMember);
+        model.addAttribute("blueMember",blueMember);
+        return new ModelAndView("foreDetailGame");
     }
     @RequestMapping("/saveRedMemVar")
     public void saveRedMemVar(String name, HttpSession session){

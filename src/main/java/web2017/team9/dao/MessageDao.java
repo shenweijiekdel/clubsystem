@@ -70,4 +70,28 @@ public class MessageDao {
     public int deleteById(int messageId) {
         return jdbcTemplate.update("DELETE from t_message WHERE message_id=?",messageId);
     }
+
+    public List<Message> findMessageByMemId(int memberId) {
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM t_message WHERE member_id=?", new RowMapper<List<Message>>() {
+                @Override
+                public List<Message> mapRow(ResultSet resultSet, int i) throws SQLException {
+                    List<Message> messages = new ArrayList<Message>();
+                    do {
+                        Message message = new Message();
+                        Member member = new Member();
+                        member.setMemberId(resultSet.getInt(3));
+                        message.setMessageId(resultSet.getInt(1));
+                        message.setContent(resultSet.getString(2));
+                        message.setTime(resultSet.getDate(4));
+                        message.setMember(member);
+                        messages.add(message);
+                    } while (resultSet.next());
+                    return messages;
+                }
+            },memberId);
+        } catch (EmptyResultDataAccessException e){
+            return null;
+        }
+    }
 }

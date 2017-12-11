@@ -20,9 +20,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- //Custom Theme files -->
 <link href="/fore/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="/fore/css/style.css" type="text/css" rel="stylesheet" media="all">
-	<link href="${pageContext.request.contextPath}/css2/font-awesome.min.css" rel="stylesheet">
-	<link href="${pageContext.request.contextPath}/css2/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="fore/css/jquery.flipster.css">
+	<%--<link href="${pageContext.request.contextPath}/css2/font-awesome.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/css2/bootstrap.min.css" rel="stylesheet">--%>
+<link rel="stylesheet" href="/fore/css/jquery.flipster.css">
 <!-- js -->
 <script src="/fore/js/jquery-1.11.1.min.js"></script>
 <script src="/fore/js/SmoothScroll.min.js"></script>
@@ -53,7 +53,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <body>
 	<!-- header -->
 	<div class="header">
-		<div class="container">		
+		<div class="container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -63,22 +63,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span class="icon-bar"></span>
 					</button>
 					<h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
-
 				</div>
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/foreIndex.html" style="font-family: '微软雅黑'">首页</a></li>
-						<li><a href="/foreUserInfo.html" class="active" style="font-family: '微软雅黑'">个人信息</a></li>
+						<li><a href="/foreUserInfo.html"  class="active" style="font-family: '微软雅黑'">个人信息</a></li>
 						<li><a href="/foreAlbums.html" style="font-family: '微软雅黑'">图库</a></li>
-						<li><a href="/foreBlog.html"   style="font-family: '微软雅黑'">留言板</a></li>
-
-
-					</ul>	
-					<div class="clearfix"> </div>	
+						<li><a href="/foreBlog.html"  style="font-family: '微软雅黑'">留言板</a></li>
+					</ul>
+					<div class="clearfix"> </div>
 				</div>
 			</nav>
-		</div> 
+		</div>
 	</div>
 	<!-- //header -->
 	<!-- banner -->
