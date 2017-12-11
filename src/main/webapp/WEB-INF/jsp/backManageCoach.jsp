@@ -56,6 +56,7 @@
                             <td>姓名</td>
                             <td>出生日期</td>
                             <td>入职日期</td>
+                            <td>性别</td>
                             <td>预约情况</td>
                             <td colspan="2">操作</td>
                         </tr>
@@ -68,6 +69,7 @@
                                 <td>${coach.coachName}</td>
                                 <td>${coach.coachBirth}</td>
                                 <td>${coach.coachEntrydate}</td>
+                                <td>${coach.gender}</td>
                                 <td>
                                     <c:if test="${coach.isoccupy}">
                                         已预约&nbsp;&nbsp;&nbsp;

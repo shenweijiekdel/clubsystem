@@ -36,7 +36,7 @@ public class CoachDao {
      * @param coach
      */
     public void updateCoach(Coach coach){
-        String sql = "update t_coach set coach_name=?,coach_birth=?,coach_entrydate=?,coach_gender=? where coach_id=?";
+        String sql = "update t_coach set coach_name=?,coach_birth=?,coach_entrydate=?,gender=? where coach_id=?";
         Object[] args = new Object[]{coach.getCoachName(), coach.getCoachBirth(), coach.getCoachEntrydate(), coach.getGender(),coach.getCoachId()};
         jdbcTemplate.update(sql, args);
     }
@@ -80,7 +80,7 @@ public class CoachDao {
                 coach.setCoachId(resultSet.getInt("coach_id"));
                 coach.setCoachName(resultSet.getString("coach_name"));
                 coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
-                coach.setGender(resultSet.getString("genger"));
+                coach.setGender(resultSet.getString("gender"));
             }
         };
         jdbcTemplate.query(sql, args, rowCallbackHandler);
@@ -89,7 +89,6 @@ public class CoachDao {
 
     /**
      * 获取所有教练信息
-     *
      * @return
      */
     public List<Coach> getAllCoach() {
@@ -105,7 +104,7 @@ public class CoachDao {
                     coach.setCoachEntrydate(resultSet.getDate("coach_entrydate"));
                     coach.setCoachName(resultSet.getString("coach_name"));
                     coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
-                    coach.setGender(resultSet.getString("genger"));
+                    coach.setGender(resultSet.getString("gender"));
                     coachList.add(coach);
                 } while (resultSet.next());
                 return coachList;
@@ -132,13 +131,13 @@ public class CoachDao {
                     coach.setCoachEntrydate(resultSet.getDate("coach_entrydate"));
                     coach.setCoachName(resultSet.getString("coach_name"));
                     coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
-                    coach.setGender(resultSet.getString("genger"));
+                    coach.setGender(resultSet.getString("gender"));
                     coach.setCoachBirth(resultSet.getDate("coach_birth"));
                     coachList.add(coach);
                 } while (resultSet.next());
                 return coachList;
             }
         };
-        return jdbcTemplate.queryForObject(sql,rowMapper);
+        return jdbcTemplate.queryForObject(sql,args,rowMapper);
     }
 }
