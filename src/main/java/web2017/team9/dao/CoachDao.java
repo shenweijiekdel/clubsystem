@@ -53,22 +53,12 @@ public class CoachDao {
     }
 
     /**
-     * 根据id更改教练已被预约
+     * 根据id更改教练预约信息
      * @param coachId
      */
-    public void updateCoachOccupy(int coachId){
-        String sql = "update t_coach set is_occupy = true where coach_id=?";
-        Object[] args = new Object[]{coachId};
-        jdbcTemplate.update(sql, args);
-    }
-
-    /**
-     * 根据id更改教练取消预约
-     * @param coachId
-     */
-    public void updateCoachNoOccupy(int coachId){
-        String sql = "update t_coach set is_occupy = FALSE where coach_id=?";
-        Object[] args = new Object[]{coachId};
+    public void updateCoachOccupy(int coachId,boolean isOccupy){
+        String sql = "update t_coach set is_occupy=? where coach_id=?";
+        Object[] args = new Object[]{isOccupy,coachId};
         jdbcTemplate.update(sql, args);
     }
 
