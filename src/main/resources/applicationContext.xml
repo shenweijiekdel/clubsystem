@@ -11,8 +11,6 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
-       http://www.springframework.org/schema/aop/spring-aop.xsd
-       http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
@@ -20,8 +18,10 @@
 
     <context:component-scan base-package="web2017.team9.dao"/>
     <context:component-scan base-package="web2017.team9.service"/>
-    <context:property-placeholder location="classpath:db.properties"/>
+    <context:component-scan base-package="web2017.team9.aspect"/>
 
+    <context:property-placeholder location="classpath:db.properties"/>
+<context:annotation-config/>
     <!--1.定义一个使用DBCP的数据源-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
