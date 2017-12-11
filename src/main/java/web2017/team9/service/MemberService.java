@@ -1,6 +1,6 @@
 package web2017.team9.service;
 
-import org.junit.Test;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,19 +39,7 @@ public class MemberService {
         return matchCount>0;
 
     }*/
-    @Test
-public void a(){
-        Member member  = new Member();
-        member.setMemberName("aa");
-        Map<Integer,Member> memberMap = new HashMap<Integer, Member>();
-        memberMap.put(1,member);
-        System.out.println(memberMap.get(1).getMemberName());
-        Member m2 = memberMap.get(1);
-        m2.setMemberName("bb");
-        System.out.println(memberMap.get(1).getMemberName());
-        b(m2);
-        System.out.println(memberMap.get(1).getMemberName());
-}
+
 public void b(Member member){
     member.setMemberName("cc");
 }
