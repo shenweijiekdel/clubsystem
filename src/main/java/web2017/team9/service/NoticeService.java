@@ -15,34 +15,42 @@ import java.util.List;
 public class NoticeService {
     @Autowired
     private NoticeDao noticeDao;
-    public List<Notice> getAllNotice(){
+
+    public List<Notice> getAllNotice() {
         List<Notice> noticeList = noticeDao.getAllNotice();
         return noticeList;
     }
-    public void addNotice(Notice notice){
+
+    public void addNotice(Notice notice) {
         Date date = new Date();
         notice.setNoticeDate(date);
         noticeDao.addNotice(notice);
     }
-    public void updateNoticeActivity(int id){
+
+    public void updateNoticeActivity(int id) {
         noticeDao.updateAllNoticeNotActivity();
         noticeDao.updateNoticeActivity(id);
     }
-    public void deleteNotice(int id){
+
+    public void deleteNotice(int id) {
         noticeDao.deleteNotice(id);
     }
-    public Notice getNoticeById(int id){
+
+    public Notice getNoticeById(int id) {
         Notice notice;
-        try{
+        try {
             notice = noticeDao.getNoticeById(id);
-        }catch (Exception e){
+        } catch (Exception e) {
             notice = null;
         }
-        return  notice;
+        return notice;
     }
 
-    public void updateNotice(Notice notice)
-    {
+    public List<Notice> getNoticeActivitied() {
+        return noticeDao.getNoticeActivityed();
+    }
+
+    public void updateNotice(Notice notice) {
         Date date = new Date();
         notice.setNoticeDate(date);
         noticeDao.updateNotice(notice);

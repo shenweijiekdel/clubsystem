@@ -56,10 +56,10 @@ public class PictureController {
         return new ModelAndView("foreAlbums");
     }
     @RequestMapping("/forePhotos")
-    public ModelAndView forePhotos(Model model,int albumId) {
+    public ModelAndView forePhotos(Model model,int albumId,String albumName) {
         List<Photo> photos = pictureService.findPhotosByAlbumId(albumId);
         model.addAttribute("photos",photos);
-
+        model.addAttribute("albumName",albumName);
         return new ModelAndView("forePhotos");
     }
     @RequestMapping("/backAddPhoto")

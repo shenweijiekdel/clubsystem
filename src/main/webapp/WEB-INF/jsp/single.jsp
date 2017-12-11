@@ -41,6 +41,11 @@
         });
     </script>
     <!-- //end-smooth-scrolling -->
+    <style>
+        *{
+            font-family: "微软雅黑";
+        }
+    </style>
 </head>
 <body>
 <!-- header -->
@@ -54,15 +59,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1><a  href="index.html">Ringster</a></h1>
+                <h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
             </div>
             <!-- top-nav -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/foreIndex.html">首页</a></li>
-                    <li><a href="/foreUserInfo.html">个人信息</a></li>
-                    <li><a href="/foreAlbums.html">图库</a></li>
-                    <li><a href="/foreBlog.html"  class="active">留言板</a></li>
+                    <li><a href="/foreIndex.html" style="font-family: '微软雅黑'">首页</a></li>
+                    <li><a href="/foreUserInfo.html" style="font-family: '微软雅黑'">个人信息</a></li>
+                    <li><a href="/foreAlbums.html" style="font-family: '微软雅黑'">图库</a></li>
+                    <li><a href="/foreBlog.html"  class="active" style="font-family: '微软雅黑'">留言板</a></li>
 
                 </ul>
                 <div class="clearfix"> </div>
@@ -75,7 +80,7 @@
 <div class="banner about-banner">
     <div class="container">
         <div class="banner-text">
-            <h2>Detailed View</h2>
+            <h2>留言板 -> 查看留言</h2>
         </div>
     </div>
 </div>
@@ -84,65 +89,39 @@
 <div class="blog single-page">
     <div class="container">
         <div class="blog-info">
-            <div class="blog-img">
+            <%--<div class="blog-img">
                 <img src="../../images/s1.jpg" alt=" " class="img-responsive" />
-            </div>
+            </div>--%>
             <div class="blog-text">
-                <h4>Integer interdum eros vitae sem ultrices sed eleifend tellus tincidunt</h4>
+                <%--<h4>Integer interdum eros vitae sem ultrices sed eleifend tellus tincidunt</h4>--%>
                 <p>${message.content}</p>
                 <div class="article-links">
                     <ul>
                         <li><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span>${message.time}</span></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span>Admin</span></a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>No comments</span></a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i><span>View posts</span></a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-link" aria-hidden="true"></i><span>Permalink</span></a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span>${message.member.memberName}</span></a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>${empty message.commentList ? 0:message.commentList.size()}</span></a></li>
+                        <%--<li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i><span>View posts</span></a></li>--%>
+                        <%--<li><a href="#"><i class="glyphicon glyphicon-link" aria-hidden="true"></i><span>Permalink</span></a></li>--%>
                     </ul>
                 </div>
             </div>
         </div>
         <!-- admin-text -->
         <div class="admin-text">
-            <h5>Written By Admin</h5>
+            <h5>${message.member.memberName}</h5>
             <div class="admin-text-left">
-                <a href="#"><img src="../../images/icon1.png" alt=""/></a>
+                <a href="#"><img src="../../images/avatar/${message.member.avatar}" alt=""/></a>
             </div>
-            <div class="admin-text-right">
+            <%--<div class="admin-text-right">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <span>View all posts by:<a href="#"> Admin </a></span>
-            </div>
+            </div>--%>
             <div class="clearfix"> </div>
         </div>
         <!-- //admin-text -->
         <!-- related-posts -->
-        <div class="row related-posts">
-            <h3>Related Posts</h3>
-            <div class="col-xs-3 col-md-3 related-grids">
-                <a href="single.html" class="thumbnail">
-                    <img src="../../images/g1.jpg" alt=""/>
-                </a>
-                <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-            </div>
-            <div class="col-xs-3 col-md-3 related-grids">
-                <a href="single.html" class="thumbnail">
-                    <img src="../../images/g2.jpg" alt=""/>
-                </a>
-                <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-            </div>
-            <div class="col-xs-3 col-md-3 related-grids">
-                <a href="single.html" class="thumbnail">
-                    <img src="../../images/g3.jpg" alt=""/>
-                </a>
-                <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-            </div>
-            <div class="col-xs-3 col-md-3 related-grids">
-                <a href="single.html" class="thumbnail">
-                    <img src="../../images/g4.jpg" alt=""/>
-                </a>
-                <h5><a href="single.html">Lorem Ipsum is simply</a></h5>
-            </div>
-        </div>
+
         <!-- //related-posts -->
         <!-- comments -->
         <div class="comment-grid-top">
@@ -152,11 +131,11 @@
 
             <div class="comments-top-top">
                 <div class="top-comment-left">
-                    <a href="#"><img class="img-responsive" src="../../images/icon1.png" alt=""></a>
+                    <a href="#"><img class="img-responsive" src="../../images/avatar/${comment.member.avatar}" alt=""></a>
                 </div>
                 <div class="top-comment-right">
                     <ul>
-                        <li><span class="left-at"><a href="#">Admin</a></span></li>
+                        <li><span class="left-at"><a href="#">${comment.member.memberName}</a></span></li>
                         <li><span class="right-at">${comment.time}</span></li>
                         <li><a class="reply" href="#">回复</a></li>
                     </ul>
@@ -185,30 +164,12 @@
 </div>
 <!-- //single-page -->
 <!-- map -->
-<div class="map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe>
-    <div class="address agileits">
-        <div class="w3ls-title">
-            <h3>GET IN TOUCH</h3>
-        </div>
-        <p>Broome St, NY 10002, Canada. </p>
-        <p>Telephone : +00 111 222 3333</p>
-        <p>FAX : +1 888 888 4444</p>
-        <p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
-        <ul class="social-icons">
-            <li>Follow Us :</li>
-            <li><a href="#"> </a></li>
-            <li><a href="#" class="fb"> </a></li>
-            <li><a href="#" class="in"> </a></li>
-            <li><a href="#" class="dott"> </a></li>
-        </ul>
-    </div>
-</div>
+
 <!-- //map -->
 <!-- footer -->
 <div class="footer">
     <div class="container">
-        <h3><a href="index.html">Ringster</a></h3>
+        <h3><a href="index.html">拳击俱乐部</a></h3>
         <p>© 2016 Ringster . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
     </div>
 </div>

@@ -9,6 +9,7 @@ import web2017.team9.domain.Notice;
 import web2017.team9.service.NoticeService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -64,5 +65,15 @@ public class NoticeController {
         List<Notice> noticeList = noticeService.getAllNotice();
         model.addAttribute("noticeList",noticeList);
         return new ModelAndView("backManageNotices");
+    }
+    @RequestMapping("/foreIndex")
+    public ModelAndView foreIndex(Model model, HttpSession session){
+        if (session.getAttribute("member") == null)
+            return new ModelAndView("redirect:foreLogin.html");
+       List<Notice> notices =   noticeService.getNoticeActivitied();
+
+       model.addAttribute("notices",notices);
+        System.out.println(notices);
+        return new ModelAndView("foreIndex");
     }
 }

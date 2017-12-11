@@ -10,6 +10,7 @@ import web2017.team9.domain.Member;
 import web2017.team9.domain.Message;
 import web2017.team9.service.MessageService;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,6 @@ public class BlogController {
     public ModelAndView foreBlog(Model model){
 
         List<Message> messages  = messageService.findAllMessage();
-        System.out.println(messages);
         model.addAttribute("messages",messages);
         return new ModelAndView("foreBlog");
     }
@@ -30,13 +30,12 @@ public class BlogController {
         return new ModelAndView("foreAddMessage");
     }
     @RequestMapping("/foreAddMessage")
-    public ModelAndView addMessage(Model model, Message message){
+    public ModelAndView addMessage(Model model, Message message, HttpSession session){
         message.setTime(new Date());
         System.out.println(message);
          /*设置member,从session里取出来*/
-        Member member = new Member();
-        member.setMemberId(0);
-        message.setMember(member);
+
+        message.setMember((Member) session.getAttribute("member"));
 
         messageService.addMessage(message);
         return new ModelAndView("foreAddMessage");
@@ -49,12 +48,11 @@ public class BlogController {
         return new ModelAndView("single");
     }
     @RequestMapping("/addComment")
-    public ModelAndView addComment(Model model, Comment comment){
+    public ModelAndView addComment(Model model, Comment comment,HttpSession session){
         comment.setTime(new Date());
         /*设置member,从session里取出来*/
-        Member member = new Member();
-        member.setMemberId(0);
-        comment.setMember(member);
+
+        comment.setMember((Member) session.getAttribute("member"));
 
         messageService.addComment(comment);
         return new ModelAndView("redirect:foreSingle.html?messageId=" + comment.getMessageId());

@@ -1,6 +1,7 @@
 package web2017.team9.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
@@ -10,6 +11,7 @@ import web2017.team9.domain.Member;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,14 +21,15 @@ import java.util.List;
 public class MemberDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    public Member getMemberByMemberName(final String memberName){
+
+    public Member getMemberByMemberName(final String memberName) {
         final Member member = new Member();
         String sql = "select * from t_member where member_name=?";
-        jdbcTemplate.query(sql,  new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 member.setAddress(resultSet.getString("address"));
-                member.setAge(resultSet.getInt("age"));
+                member.setBirthday(resultSet.getDate("birthday"));
                 member.setAvatar(resultSet.getString("avatar"));
                 member.setIDNumber(resultSet.getString("ID_number"));
                 member.setMemberId(resultSet.getInt("member_id"));
@@ -37,18 +40,20 @@ public class MemberDao {
                 member.setTel(resultSet.getString("tel"));
                 member.setWeight(resultSet.getFloat("weight"));
             }
-        },memberName);
+        }, memberName);
+        if (member.getMemberName() == null)
+            return null;
         return member;
     }
 
-    public Member getMemberByMemberId(final int memberId){
+    public Member getMemberByMemberId(final int memberId) {
         final Member member = new Member();
         String sql = "select * from t_member where member_id=?";
-        jdbcTemplate.query(sql,  new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
                 member.setAddress(resultSet.getString("address"));
-                member.setAge(resultSet.getInt("age"));
+                member.setBirthday(resultSet.getDate("birthday"));
                 member.setAvatar(resultSet.getString("avatar"));
                 member.setIDNumber(resultSet.getString("ID_number"));
                 member.setMemberId(memberId);
@@ -59,10 +64,11 @@ public class MemberDao {
                 member.setTel(resultSet.getString("tel"));
                 member.setWeight(resultSet.getFloat("weight"));
             }
-        },memberId);
+        }, memberId);
         return member;
     }
-    public List<Member> getAllMember(){
+
+    public List<Member> getAllMember() {
         final List<Member> memberList = new ArrayList<Member>();
         String sql = "select * from t_member";
         return jdbcTemplate.queryForObject(sql, new RowMapper<List<Member>>() {
@@ -79,11 +85,87 @@ public class MemberDao {
                     member.setIDNumber(resultSet.getString("ID_number"));
                     member.setMemberName(resultSet.getString("member_name"));
                     member.setAddress(resultSet.getString("address"));
-                    member.setAge(resultSet.getInt("age"));
+                    member.setBirthday(resultSet.getDate("birthday"));
                     memberList.add(member);
-                }while(resultSet.next());
+                } while (resultSet.next());
                 return memberList;
             }
         });
+    }
+   /* public int getMatchCount(String memberName,String password){
+        String sqlStr = "SELECT count(*) FROM t_member WHERE member_name =? and password=?";
+        Object args[] = new Object[]{memberName,password};
+        return jdbcTemplate.queryForObject(sqlStr,args,Integer.class);
+    }*/
+
+    //会员注册
+    public void registerMember(Member member) {
+        String sql = "INSERT INTO t_member(member_name,password,sex,birthday,ID_number,address,tel) VALUES(?,?,?,?,?,?,?)";
+        Object[] args = new Object[]{
+                member.getMemberName(), member.getPassword(), member.getSex(),
+                member.getBirthday(), member.getIDNumber(), member.getAddress(), member.getTel()
+        };
+        jdbcTemplate.update(sql, args);
+    }
+
+    public Member login(String memberName, String password) {
+        String sqlStr = "SELECT * FROM t_member WHERE member_name = ? AND password=?";
+        final Member member = new Member();
+        Object[] args = new Object[]{memberName, password};
+
+
+        jdbcTemplate.query(sqlStr, args,
+                new RowCallbackHandler() {
+                    @Override
+                    public void processRow(ResultSet rs) throws SQLException {
+                        member.setMemberId(rs.getInt(1));
+                        member.setMemberName(rs.getString(2));
+                        member.setPassword(rs.getString(3));
+                        member.setSex(rs.getString(4));
+                        member.setBirthday(rs.getDate(5));
+                        member.setIDNumber(rs.getString(6));
+                        member.setAddress(rs.getString(7));
+                        member.setTel(rs.getString(8));
+                        member.setAvatar(rs.getString(9));
+                        member.setMoney(rs.getFloat(10));
+                        member.setWeight(rs.getFloat(11));
+                    }
+                });
+        if (member.getMemberName() == null)
+            return null;
+        return member;
+    }
+
+    public int updateMemberInfo(Member member) {
+        System.out.println(member);
+        ArrayList<Object> objects = new ArrayList<Object>();
+        String sql = "update t_member set sex=?";
+        objects.add(member.getSex());
+        if (member.getBirthday() != null){
+            sql += ",birthday=?";
+            objects.add(member.getBirthday());
+
+        }
+        if (!"".equals(member.getIDNumber())) {
+
+            sql += ",ID_number=?";
+            objects.add(member.getIDNumber());
+        }
+        if (!"".equals(member.getAddress())) {
+            sql += ",address=?";
+            objects.add(member.getAddress());
+
+        }
+        if (!"".equals(member.getTel())) {
+            sql += ",tel=?";
+            objects.add(member.getTel());
+        }
+        if (member.getAvatar() != null) {
+            sql += ",avatar=?";
+            objects.add(member.getAvatar());
+        }
+        sql += "WHERE member_id=?";
+        objects.add(member.getMemberId());
+        return jdbcTemplate.update(sql, objects.toArray());
     }
 }

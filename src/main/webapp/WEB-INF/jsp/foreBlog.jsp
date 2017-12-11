@@ -42,7 +42,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </script>
 	<style>
 		*{
-			font-family:'微软雅黑';
+			font-family:"微软雅黑";
 		}
 	</style>
 <!-- //end-smooth-scrolling -->	
@@ -59,15 +59,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a  href="index.index.jsp">Ringster</a></h1>
+					<h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
 				</div>
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html">个人信息</a></li>
-						<li><a href="/foreAlbums.html">图库</a></li>
-						<li><a href="/foreBlog.html"  class="active">留言板</a></li>
+					<ul class="nav navbar-nav navbar-right" >
+						<li><a href="/foreIndex.html" style="font-family: '微软雅黑'">首页</a></li>
+						<li><a href="/foreUserInfo.html" style="font-family: '微软雅黑'">个人信息</a></li>
+						<li><a href="/foreAlbums.html" style="font-family: '微软雅黑'">图库</a></li>
+						<li><a href="/foreBlog.html"  class="active" style="font-family: '微软雅黑'">留言板</a></li>
 
 					</ul>
 					<div class="clearfix"> </div>	
@@ -92,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="blog agileits">
 		<div class="container">
 			<div class="w3ls-title">
-				<h3>Latest blog</h3>
+				<h3>全部留言</h3>
 
 			</div>
 			<div style="text-align: right">
@@ -115,20 +115,20 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<c:forEach items="${messages}" var="message">
 				<div class="col-md-6 blog-grids">
 					<div class="blog-grids-left">
-						<a href="single.html">
-							<img src="images/b1.jpg" class="img-responsive" alt=""/> 
+						<a href="/foreSingle.html?messageId=${message.messageId}">
+							<img src="../../images/avatar/${message.member.avatar}" class="img-responsive" alt=""/>
 						</a>
 						<div class="blog-w3text">
 							<ul>
-								<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><br><h6>30K Likes</h6></a></li>
+								<%--<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span><br><h6>30K Likes</h6></a></li>--%>
 								<li><a href="#"><span class="glyphicon glyphicon-comment"></span><br><h6>${empty message.commentList ? 0:message.commentList.size()}评论</h6> </a></li>
-								<li><a href="#"><span class="glyphicon glyphicon-share"></span><br><h6>8K Shares</h6> </a></li>
+								<%--<li><a href="#"><span class="glyphicon glyphicon-share"></span><br><h6>8K Shares</h6> </a></li>--%>
 							</ul>
 						</div>
 					</div>
 					<div class="blog-grids-right">
-						<h4><a href="single.html">标题</a></h4>
-						<p class="snglp">用户 : <a href="#"> Admin</a> &nbsp;&nbsp;on  <span>${message.time}</span></p>
+						<%--<h4><a href="single.html">标题</a></h4>--%>
+						<p class="snglp">用户 : <a href="#">${message.member.memberName}</a> &nbsp;&nbsp;on  <span>${message.time}</span></p>
 						<p>${message.content.length() > 10?message.content.substring(0,10):message.content}</p>
 						<a href="/foreSingle.html?messageId=${message.messageId}" class="more">查看更多 <span class="glyphicon glyphicon-menu-right"></span> </a>
 					</div>	
@@ -145,30 +145,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<!-- //blog -->  
 	<!-- map -->
-	<div class="map">  
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe>
-		<div class="address agileits">
-			<div class="w3ls-title">
-				<h3>GET IN TOUCH</h3> 
-			</div>
-			<p>Broome St, NY 10002, Canada. </p>
-			<p>Telephone : +00 111 222 3333</p>
-			<p>FAX : +1 888 888 4444</p>
-			<p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
-			<ul class="social-icons"> 
-				<li>Follow Us :</li>
-				<li><a href="#"> </a></li>
-				<li><a href="#" class="fb"> </a></li>
-				<li><a href="#" class="in"> </a></li>
-				<li><a href="#" class="dott"> </a></li>
-			</ul>
-		</div> 
-	</div>
 	<!-- //map -->
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
-			<h3><a href="index.index.jsp">Ringster</a></h3>
+			<h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
+
 			<p>© 2016 Ringster . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
 		</div>
 	</div>

@@ -45,9 +45,9 @@ public class PictureService {
     }
 @Transactional
     public void addPhotoByAlbumId(MultipartFile photo, int albumId, String path, String filename) throws Exception{
+        photo.transferTo(new File(path + filename));
         pictureDao.addPhotoByAlbumId(filename,albumId);
 
-        photo.transferTo(new File(path + filename));
 
 }
 }

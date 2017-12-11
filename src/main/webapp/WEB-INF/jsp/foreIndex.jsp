@@ -42,6 +42,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 </script>
+	<style>
+		*{
+			font-family:"微软雅黑";
+		}
+	</style>
 <!-- //end-smooth-scrolling -->	
 </head>
 <body>
@@ -56,16 +61,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a  href="index.index.jsp">Ringster</a></h1>
+					<h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
 				</div>
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/foreIndex.html" class="active">首页</a></li>
-						<li><a href="/foreUserInfo.html" >个人信息</a></li>
-						<li><a href="/foreAlbums.html">图库</a></li>
-						<li><a href="/foreBlog.html">留言板</a></li>
-
+						<li><a href="/foreIndex.html" class="active" style="font-family: '微软雅黑'">首页</a></li>
+						<li><a href="/foreUserInfo.html" style="font-family: '微软雅黑'">个人信息</a></li>
+						<li><a href="/foreAlbums.html" style="font-family: '微软雅黑'">图库</a></li>
+						<li><a href="/foreBlog.html"  style="font-family: '微软雅黑'">留言板</a></li>
 					</ul>
 					<div class="clearfix"> </div>
 				</div>
@@ -77,153 +81,128 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner">		 
 		<div class="container"> 
 			<div class="banner-text">	
-				<h4>Are You</h4>
-				<h2>Ringster</h2>
-				<h3>Get To Fit</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt lorem sed velit fermentum lobortis. Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor vitae pharetra .</p>
+				<%--<h4>Are You</h4>--%>
+				<h2>公告</h2>
+				<h3>${notices.get(0).noticeTitle}</h3>
+				<p>${notices.get(0).noticeContent}</p>
 			</div> 
 		</div> 
-	</div>		
+	</div>
+	<div class="team agileits">
+		<div class="team-info">
+			<div class="container">
+				<div class="w3ls-title">
+					<h3>教练团队</h3>
+				</div>
+				<div class="team-row">
+					<div class="col-md-3 team-grids">
+						<div class="team-img">
+							<img class="img-responsive" src="images/t1.jpg" alt="">
+							<div class="captn">
+								<div class="captn-top">
+									<h4>Edwards Doe</h4>
+									<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+								</div>
+								<div class="social-icons">
+									<ul>
+										<li><a href="#"> </a></li>
+										<li><a href="#" class="fb"> </a></li>
+										<li><a href="#" class="in"> </a></li>
+									</ul>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 team-grids">
+						<div class="team-img">
+							<img class="img-responsive" src="images/t2.jpg" alt="">
+							<div class="captn">
+								<div class="captn-top">
+									<h4>Mark Sophia</h4>
+									<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+								</div>
+								<div class="social-icons">
+									<ul>
+										<li><a href="#"> </a></li>
+										<li><a href="#" class="fb"> </a></li>
+										<li><a href="#" class="in"> </a></li>
+									</ul>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 team-grids">
+						<div class="team-img">
+							<img class="img-responsive" src="images/t3.jpg" alt="">
+							<div class="captn">
+								<div class="captn-top">
+									<h4>Michael amet</h4>
+									<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+								</div>
+								<div class="social-icons">
+									<ul>
+										<li><a href="#"> </a></li>
+										<li><a href="#" class="fb"> </a></li>
+										<li><a href="#" class="in"> </a></li>
+									</ul>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 team-grids">
+						<div class="team-img">
+							<img class="img-responsive" src="images/t4.jpg" alt="">
+							<div class="captn">
+								<div class="captn-top">
+									<h4>Daniel Nyari</h4>
+									<p>Aenean pulvinar ac enimet posuere tincidunt velit Utin tincidunt</p>
+								</div>
+								<div class="social-icons">
+									<ul>
+										<li><a href="#"> </a></li>
+										<li><a href="#" class="fb"> </a></li>
+										<li><a href="#" class="in"> </a></li>
+									</ul>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- //banner -->	
 	<!-- skills -->
-	<div class="skills agileits">
-		<div class="container">
-			<div class="w3ls-title">
-				<h3>Who we are</h3> 
-			</div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt lorem sed velit fermentum lobortis. Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor, vitae pharetra nunc lacinia eget. Nulla ornare purus nunc, ut dapibus leo sodales adipiscing. Praesent sit amet justo diam. Quisque sagittis egestas sem vitae vestibulum. Quisque nec lacus ornare, volutpat arcu in, lacinia dolor.</p>
-			<div class="skills-w3row"> 
-				<div class="col-md-4 skills-left">
-					<img src="images/img1.jpg" class="img-responsive" alt=""/> 
-				</div>
-				<div class="col-md-8 skills-right">
-					<h4>Why Choose Us</h4>
-					<ul>
-						<li><div class="demo demo-1" data-percent="65"></div><p>Sed tincidunt</p></li>
-						<li><div class="demo demo-2" data-percent="95"></div><p>Lorem sed</p> </li>
-						<li><div class="demo demo-3" data-percent="85"></div><p>Consectetur</p> </li>
-						<li><div class="demo demo-4" data-percent="72"></div><p>Velitlorem</p> </li>
-					</ul>
-					<script>
-						$('.demo-1').percentcircle();
-							$('.demo-2').percentcircle({
-							animate : true,
-							fillColor: '#e94e02'
-						});
-							$('.demo-3').percentcircle({
-							animate : true,
-							fillColor: '#F2B33F'
-						});
-							$('.demo-4').percentcircle({
-							animate : true,
-							fillColor: '#79302a'
-						});
-					</script>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-	<!-- //skills --> 
+	 -->
 	<!-- slid -->
-	<div class="slid">
-		<div class="container">
-			<section class="slider">
-				<div class="flexslider">
-					<ul class="slides">
-						<li>
-							<h3>Adult Beginner</h3>
-							<p>Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor, vitae pharetra nunc lacinia eget. Nulla ornare purus nunc </p>
-						</li>
-						<li class="slide">
-							<h3>Advanced Classes</h3>
-							<p>Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Fusce eu semper lacus, eget placerat mauris. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor, vitae pharetra nunc lacinia eget. Nulla ornare purus nunc </p>
-						</li>
-						<li class="slide">
-							<h3>Special Classes</h3>
-							<p>Fusce eu semper lacus, eget placerat mauris. Sed lectus tellus, sodales id elit a, feugiat porttitor nulla. Sed porta magna vitae nisl vulputate lacinia. Morbi malesuada sollicitudin tortor, vitae pharetra nunc lacinia eget. Nulla ornare purus nunc </p>
-						</li>
-					</ul>
-				</div> 
-			</section>
-			<!-- FlexSlider -->
-			<script defer src="/fore/js/jquery.flexslider.js"></script>
-			<script type="text/javascript">
-			$(window).load(function() {
-			  $('.flexslider').flexslider({
-				animation: "slide",
-				controlsContainer: $(".custom-controls-container"),
-				customDirectionNav: $(".custom-navigation a")
-			  });
-			});
-			</script>
-			<!-- //FlexSlider --> 
-		</div>
-	</div>
+
 	<!-- //slid --> 
 	<!-- features -->
-	<div class="features agileits">
-		<div class="container">
-			<div class="w3ls-title">
-				<h3>OUR FEATURES</h3> 
-			</div> 
-			<div class="features-w3ls-row">
-				<div class="col-md-4 features-grid">
-					<span class="glyphicon glyphicon-home effect-1" aria-hidden="true"></span>
-					<h5>Cum soluta nobis</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
-				</div>
-				<div class="col-md-4 features-grid">
-					<span class="glyphicon glyphicon-list-alt effect-1" aria-hidden="true"></span>
-					<h5>Soluta vum nobis</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
-				</div>
-				<div class="col-md-4 features-grid">
-					<span class="glyphicon glyphicon-tree-deciduous effect-1" aria-hidden="true"></span>
-					<h5>Nobis cum soluta</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras rutrum iaculis enim, non convallis felis mattis at</p>
-				</div>
-				<div class="clearfix"> </div>
-			</div>   
-		</div>
-	</div>
+
 	<!-- //features --> 
 	<!-- subscribe -->
 	<div class="subscribe">
 		<div class="container">
 			<div class="subscribe-info">
-				<h4>SIGN UP FOR NEWSLETTER</h4>
-				<p><span>Contact us </span>Lorem ipsum dolor sit amet consectetur, <br> adipiscing elit Cras rutrum iaculis enim, non convallis felis mattis convallis.</p>
-				<form action="#" method="post">
+				<h4>注册成为我们的会员</h4>
+				<%--<p><span>Contact us </span>Lorem ipsum dolor sit amet consectetur, <br> adipiscing elit Cras rutrum iaculis enim, non convallis felis mattis convallis.</p>--%>
+			<%--	<form action="#" method="post">
 					<input type="text" name="Email" placeholder="Your Email" required="">
 					<input type="submit" value="Subscribe">
 					<div class="clearfix"> </div>
-				</form>
+				</form>--%>
+				<a href="/beforeForeRegister.html" class="btn btn-default">注册</a>
 			</div>
 		</div>
 	</div>
 	<!-- //subscribe --> 
 	<!-- map -->
-	<div class="map">  
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe>
-		<div class="address agileits">
-			<div class="w3ls-title">
-				<h3>GET IN TOUCH</h3> 
-			</div>
-			<p>Broome St, NY 10002, Canada. </p>
-			<p>Telephone : +00 111 222 3333</p>
-			<p>FAX : +1 888 888 4444</p>
-			<p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
-			<ul class="social-icons"> 
-				<li>Follow Us :</li>
-				<li><a href="#"> </a></li>
-				<li><a href="#" class="fb"> </a></li>
-				<li><a href="#" class="in"> </a></li>
-				<li><a href="#" class="dott"> </a></li>
-			</ul>
-		</div>
 
-	</div>
 	<!-- //map -->
 	<!-- footer -->
 	<div class="footer">

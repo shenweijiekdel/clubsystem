@@ -1,5 +1,7 @@
 package web2017.team9.domain;
 
+import java.util.Date;
+
 /**
  * Created by WSF on 2017/11/18.
  */
@@ -8,13 +10,39 @@ public class Member {
     private String memberName;
     private String password;
     private String sex;
-    private int age;
+    private Date birthday;
     private String IDNumber;
     private String address;
     private String tel;
     private String avatar;
     private float money;
     private float weight;
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "memberId=" + memberId +
+                ", memberName='" + memberName + '\'' +
+                ", password='" + password + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday=" + birthday +
+                ", IDNumber='" + IDNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", tel='" + tel + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", money=" + money +
+                ", weight=" + weight +
+                '}';
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
 
     public float getWeight() {
         return weight;
@@ -54,14 +82,6 @@ public class Member {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getIDNumber() {

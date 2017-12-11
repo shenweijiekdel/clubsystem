@@ -81,4 +81,23 @@ public class NoticeDao {
         };
         return jdbcTemplate.queryForObject(sql,rowMapper);
     }
+
+    public List<Notice> getNoticeActivityed() {
+        return jdbcTemplate.queryForObject("select * from t_notice where is_activity=true", new RowMapper<List<Notice>>() {
+            @Override
+            public List<Notice> mapRow(ResultSet resultSet, int i) throws SQLException {
+                List<Notice> list = new ArrayList<Notice>();
+                do {
+                    Notice notice = new Notice();
+                    notice.setNoticeId(resultSet.getInt("notice_id"));
+                    notice.setNoticeDate(resultSet.getDate("notice_date"));
+                    notice.setNoticeContent(resultSet.getString("notice_content"));
+                    notice.setActivity(resultSet.getBoolean("is_activity"));
+                    notice.setNoticeTitle(resultSet.getString("notice_title"));
+                    list.add(notice);
+                }while (resultSet.next());
+                return list;
+            }
+        });
+    }
 }

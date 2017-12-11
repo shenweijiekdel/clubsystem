@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import web2017.team9.dao.CommentDao;
+import web2017.team9.dao.MemberDao;
 import web2017.team9.dao.MessageDao;
 import web2017.team9.domain.Comment;
 import web2017.team9.domain.Message;
@@ -16,6 +17,8 @@ public class MessageService {
     private MessageDao messageDao;
     @Autowired
     private CommentDao commentDao;
+    @Autowired
+    private MemberDao memberDao;
     public int addMessage(Message message) {
         return messageDao.AddMessage(message);
     }
@@ -25,15 +28,17 @@ public class MessageService {
         if(messages != null)
         for (Message msg:messages
              ) {
-            msg.setCommentList(commentDao.findCommentByMid(msg.getMessageId()));
+            msg.setCommentList(findCommentByMid(msg.getMessageId()));
+            msg.setMember(memberDao.getMemberByMemberId(msg.getMember().getMemberId()));
         }
         return messages;
     }
 
     public Message findMessageById(int messageId) {
         Message message =  messageDao.findMessageById(messageId);
-        List<Comment> comments = commentDao.findCommentByMid(messageId);
+        List<Comment> comments = findCommentByMid(messageId);
         message.setCommentList(comments);
+        message.setMember(memberDao.getMemberByMemberId(message.getMember().getMemberId()));
         return message;
     }
 
@@ -42,7 +47,13 @@ public class MessageService {
     }
 
     public List<Comment> findCommentByMid(int messageId) {
-        return commentDao.findCommentByMid(messageId);
+        List<Comment> comments = commentDao.findCommentByMid(messageId);
+        if (comments != null)
+        for (Comment cmt:comments
+             ) {
+            cmt.setMember(memberDao.getMemberByMemberId(cmt.getMember().getMemberId()));
+        }
+        return comments;
     }
 @Transactional
     public int deleteMessageById(int messageId) {

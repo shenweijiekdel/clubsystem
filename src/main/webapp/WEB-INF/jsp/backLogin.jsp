@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">  
-	    <title>Visual Admin - Login</title>
+	    <title>管理员登录</title>
         <meta name="description" content="">
         <meta name="author" content="templatemo">
         <!-- 
@@ -15,9 +15,9 @@
         http://www.templatemo.com/preview/templatemo_455_visual_admin
         -->
 	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700' rel='stylesheet' type='text/css'>
-	    <link href="css/font-awesome.min.css" rel="stylesheet">
-	    <link href="css/bootstrap.min.css" rel="stylesheet">
-	    <link href="css/templatemo-style.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css2/font-awesome.min.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css2/bootstrap.min.css" rel="stylesheet">
+	    <link href="${pageContext.request.contextPath}/css2/templatemo-style.css" rel="stylesheet">
 	    
 	    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -56,8 +56,6 @@
 				</div>
 	        </form>
 		</div>
-		<div class="templatemo-content-widget templatemo-login-widget templatemo-register-widget white-bg">
-			<p>Not a registered user yet? <strong><a href="#" class="blue-text">Sign up now!</a></strong></p>
-		</div>
+
 	</body>
 </html>

@@ -40,6 +40,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 </script>
+	<style>
+		*{
+			font-family:"微软雅黑";
+		}
+	</style>
 <!-- //end-smooth-scrolling -->	
 </head>
 <body>
@@ -54,15 +59,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1><a  href="index.index.jsp">Ringster</a></h1>
+					<h1><a  href="/foreIndex.html">拳击俱乐部</a></h1>
 				</div>
 				<!-- top-nav -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/foreIndex.html">首页</a></li>
-						<li><a href="/foreUserInfo.html">个人信息</a></li>
-						<li><a href="/foreAlbums.html"  class="active">图库</a></li>
-						<li><a href="/foreBlog.html">留言板</a></li>
+						<li><a href="/foreIndex.html" style="font-family: '微软雅黑'">首页</a></li>
+						<li><a href="/foreUserInfo.html" style="font-family: '微软雅黑'">个人信息</a></li>
+						<li><a href="/foreAlbums.html" class="active" style="font-family: '微软雅黑'">图库</a></li>
+						<li><a href="/foreBlog.html"  style="font-family: '微软雅黑'">留言板</a></li>
+
 
 					</ul>
 					<div class="clearfix"> </div>	
@@ -75,7 +81,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="banner about-banner">		 
 		<div class="container"> 
 			<div class="banner-text">	 
-				<h2>Latest Photos</h2>
+				<h2>相册 -> ${albumName}</h2>
 			</div> 
 		</div> 
 	</div>		
@@ -129,30 +135,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</div>
 	<!-- //gallery --> 
 	<!-- map -->
-	<div class="map">  
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"></iframe>
-		<div class="address agileits">
-			<div class="w3ls-title">
-				<h3>GET IN TOUCH</h3> 
-			</div>
-			<p>Broome St, NY 10002, Canada. </p>
-			<p>Telephone : +00 111 222 3333</p>
-			<p>FAX : +1 888 888 4444</p>
-			<p>Email : <a href="mailto:example@mail.com">mail@example.com</a></p>
-			<ul class="social-icons"> 
-				<li>Follow Us :</li>
-				<li><a href="#"> </a></li>
-				<li><a href="#" class="fb"> </a></li>
-				<li><a href="#" class="in"> </a></li>
-				<li><a href="#" class="dott"> </a></li>
-			</ul>
-		</div> 
-	</div>
+
 	<!-- //map -->
 	<!-- footer -->
 	<div class="footer">
 		<div class="container">
-			<h3><a href="index.index.jsp">Ringster</a></h3>
+			<h3><a href="/foreIndex.html">拳击俱乐部</a></h3>
 			<p>© 2016 Ringster . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts.</a></p>
 		</div>
 	</div>
