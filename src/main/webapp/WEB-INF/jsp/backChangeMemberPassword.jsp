@@ -47,7 +47,7 @@
         </div>
         <table class="table table-striped table-bordered templatemo-user-table">
             <form action="<c:url value="/change_memberpassword.html"/>" method="post">
-                <input type="hidden" name="member_id" value="${member.memberId}">
+                <input type="hidden" name="memberId" value="${member.memberId}">
                 <tr><td>姓名：</td><td><input type="text" name="memberName" value="${member.memberName}" class="form-control"></td></tr>
                 <tr><td>密码：</td><td><input type="password" name="password" value="${member.password}"  class="form-control"></td></tr>
                 <tr><td>住址：</td><td><input type="text" name="address" value="${member.address}"  class="form-control"></td></tr>

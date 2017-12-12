@@ -146,6 +146,11 @@ public class MemberDao {
             objects.add(member.getBirthday());
 
         }
+        if (member.getPassword() != null){
+            sql += ",password=?";
+            objects.add(member.getPassword());
+
+        }
         if (!"".equals(member.getIDNumber())) {
 
             sql += ",ID_number=?";
@@ -164,8 +169,14 @@ public class MemberDao {
             sql += ",avatar=?";
             objects.add(member.getAvatar());
         }
-        sql += "WHERE member_id=?";
+
+            sql += ",weight=?";
+            objects.add(member.getWeight());
+
+        sql += " WHERE member_id=?";
         objects.add(member.getMemberId());
+        System.out.println(sql);
+        System.out.println(Arrays.toString(objects.toArray()));
         return jdbcTemplate.update(sql, objects.toArray());
     }
     public List<Member> getAllUser(){
@@ -195,11 +206,11 @@ public class MemberDao {
 
 
 
-    public int updatepassword(Member staff) {
+    /*public int updatepassword(Member staff) {
         String sqlStr = " UPDATE t_member SET password=?,member_name=?,sex=?,birthday=?,ID_number=?,address=?,tel=?,avatar=?,money=?,weight=? WHERE member_id=? ";
         Object[] args = {staff.getPassword(),staff.getMemberName(),staff.getSex(),staff.getBirthday(),staff.getIDNumber(),staff.getAddress(),staff.getTel(),staff.getAvatar(),staff.getMoney(),staff.getWeight(),staff.getMemberId()};
         return jdbcTemplate.update(sqlStr, args);
-    }//改
+    }//改*/
 
     public int addStaff(Member staff) {
         String sqlStr =	" INSERT INTO t_member(member_name,password,sex,birthday,\n" +

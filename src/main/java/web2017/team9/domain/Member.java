@@ -1,5 +1,6 @@
 package web2017.team9.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**

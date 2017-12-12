@@ -81,8 +81,10 @@ public void b(Member member){
         memberDao.addStaff(member);
     }//添加会员
 
-    public void changepassword(Member member) {
-        memberDao.updatepassword(member);
+    public int changepassword(Member member) {
+
+            return memberDao.updateMemberInfo(member);
+
     }//改电话
 
     @SuppressWarnings("rawtypes")
