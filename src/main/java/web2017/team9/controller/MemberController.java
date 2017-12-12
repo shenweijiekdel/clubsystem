@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,20 +75,23 @@ public class MemberController {
             model.addAttribute("msg", "用户名或密码错误！");
             return new ModelAndView("foreLogin", "error", "用户名或密码错误。");
         }
-
-        Cookie memNamec = new Cookie("memberName", memberName);
-        Cookie pswdc = new Cookie("password", password);
-        memNamec.setPath("/");
-        pswdc.setPath("/");
-        if ("true".equals(cc)) {
-            memNamec.setMaxAge(3600 * 24 * 30);
-            pswdc.setMaxAge(3600 * 24 * 30);
-        } else {
-            memNamec.setMaxAge(0);
-            pswdc.setMaxAge(0);
-        }
-        response.addCookie(memNamec);
-        response.addCookie(pswdc);
+try {
+    Cookie memNamec = new Cookie("memberName", URLEncoder.encode(memberName, "utf-8"));
+    Cookie pswdc = new Cookie("password",  URLEncoder.encode(memberName, "utf-8"));
+    memNamec.setPath("/");
+    pswdc.setPath("/");
+    if ("true".equals(cc)) {
+        memNamec.setMaxAge(3600 * 24 * 30);
+        pswdc.setMaxAge(3600 * 24 * 30);
+    } else {
+        memNamec.setMaxAge(0);
+        pswdc.setMaxAge(0);
+    }
+    response.addCookie(memNamec);
+    response.addCookie(pswdc);
+} catch (UnsupportedEncodingException e){
+            e.printStackTrace();
+}
         session.setAttribute("member", member);
         return new ModelAndView("redirect:foreIndex.html");
 
