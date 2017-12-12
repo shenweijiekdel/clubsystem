@@ -61,6 +61,7 @@ public void b(Member member){
     }
     public int changeUserInfo(Member member, HttpSession session){
         member.setMemberId(((Member)session.getAttribute("member")).getMemberId());
+        System.out.println("memberService:" + member);
         int i =  memberDao.updateMemberInfo(member);
         session.setAttribute("member",memberDao.getMemberByMemberName(member.getMemberName()));
         return i;
@@ -81,8 +82,10 @@ public void b(Member member){
         memberDao.addStaff(member);
     }//添加会员
 
-    public void changepassword(Member member) {
-        memberDao.updatepassword(member);
+    public int changepassword(Member member) {
+
+            return memberDao.updateMemberInfo(member);
+
     }//改电话
 
     @SuppressWarnings("rawtypes")

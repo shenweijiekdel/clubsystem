@@ -70,22 +70,22 @@
                 <tbody>
                 <tr>
                     <c:set var="i" value="0"/>
-                    <c:forEach var="list" items="${list}">
+                    <c:forEach var="member" items="${list}">
                 <tr>
                     <td>${i=i+1} </td>
-                    <td>${list.member_name} </td>
-                    <td>${list.password}</td>
-                    <td>${list.sex}</td>
-                    <td>${list.age}</td>
-                    <td>${list.ID_number}</td>
-                    <td>${list.address}</td>
-                    <td>${list.tel}</td>
-                    <td>${list.avatar}</td>
-                    <td>${list.money}</td>
-                    <td>${list.weight}</td>
+                    <td>${member.member_name} </td>
+                    <td>${member.password}</td>
+                    <td>${member.sex}</td>
+                    <td>${member.birthday}</td>
+                    <td>${member.ID_number}</td>
+                    <td>${member.address}</td>
+                    <td>${member.tel}</td>
+                    <td>${member.avatar}</td>
+                    <td>${member.money}</td>
+                    <td>${member.weight}</td>
 
-                <td><a href="<c:url value="/change_member.html?memberId=${list.member_id}"/>">Edit</a></td>
-                <td><a href="<c:url value="/delete_member.html?memberId=${list.member_id}"/>">Delete</a></td>
+                <td><a href="<c:url value="/change_member.html?memberId=${member.member_id}"/>">Edit</a></td>
+                <td><a href="<c:url value="/delete_member.html?memberId=${member.member_id}"/>">Delete</a></td>
                 </tr>
                 </c:forEach>
                 </tr>

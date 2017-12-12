@@ -259,7 +259,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 					</div>
 				</div>
-
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">体重</div>
+								<input type="text" class="form-control" placeholder="体重" name="weight" value="${member.weight}">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">钱</div>
+								<input type="text" class="form-control" placeholder="钱" name="money" value="${member.money}" readonly="readonly">
+							</div>
+						</div>
+					</div>
+				</div>
 
 
 

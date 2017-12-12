@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -48,20 +49,24 @@ public class MemberController {
     public String loginPage(Model model, HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         Member member = new Member();
-        for (Cookie cookie : cookies
-                ) {
-            if ("memberName".equals(cookie.getName())) {
+        try {
+            for (Cookie cookie : cookies
+                    ) {
+                if ("memberName".equals(cookie.getName())) {
 
-                member.setMemberName(cookie.getValue());
+                    member.setMemberName(URLDecoder.decode(cookie.getValue(), "utf-8"));
 
+                }
+                if ("password".equals(cookie.getName())) {
+                    member.setPassword(URLDecoder.decode(cookie.getValue(),"utf-8"));
+                }
             }
-            if ("password".equals(cookie.getName())) {
-                member.setPassword(cookie.getValue());
-            }
-        }
-        if (member.getMemberName() != null && member.getPassword() != null){
+            if (member.getMemberName() != null && member.getPassword() != null) {
 
-            model.addAttribute("memberCookie", member);
+                model.addAttribute("memberCookie", member);
+            }
+        }catch (UnsupportedEncodingException e){
+            e.printStackTrace();
         }
         return "foreLogin";
     }
@@ -136,6 +141,7 @@ try {
 
         } else {
             String filename = head.getOriginalFilename();
+
             filename = filename.substring(filename.indexOf('.'));
             String path = this.getClass().getResource("/").getPath();
             path = path.replace("WEB-INF/classes", "images/avatar");
@@ -153,6 +159,7 @@ try {
                 e.printStackTrace();
             }*/
         }
+        System.out.println("sessionNumber:" + session.getAttribute("member"));
 
         return new ModelAndView("redirect:/foreUserInfo.html");
     }
@@ -160,10 +167,10 @@ try {
     @RequestMapping(value = "/foreRegister.html")
     public ModelAndView foreRegister(HttpSession session, Member member, Model model) {
         if (memberService.registerMember(member) > 0){
-
-        session.setAttribute("member", member);
+        Member loginMember = memberService.login(member.getMemberName(),member.getPassword());
+        session.setAttribute("member",loginMember);
         }
-        return new ModelAndView("foreIndex");
+        return new ModelAndView("redirect:/foreIndex.html");
     }
     @RequestMapping(value="/index.html")
     public void memberPage(HttpServletResponse response)throws Exception{
@@ -208,28 +215,28 @@ try {
 
 
     @RequestMapping(value = "/change_member.html")
-    public ModelAndView change_member(HttpServletRequest request,Member Member){
+    public ModelAndView change_member(Model model,Member Member){
         Member member = memberService.getUserByUserId(Member.getMemberId());
-        request.getSession().setAttribute("member",member);
+        model.addAttribute("member",member);
         return new ModelAndView("backChangeMemberPassword");
     }
 
     @RequestMapping(value = "/change_memberpassword.html")
-    public void change_memberpassword(HttpServletRequest request,Member member,HttpServletResponse response)throws Exception{
-        System.out.println(member.toString());
+    public void change_memberpassword(Model model,Member member,HttpServletResponse response)throws Exception{
+
         memberService.changepassword(member);
-        List<Member> List = memberService.getAllUser();
-        request.getSession().setAttribute("List",List);
+        List<Member> list = memberService.getAllUser();
+        model.addAttribute("list",list);
         //request.setAttribute("List",List);
         //return new ModelAndView("manage_member");
         response.sendRedirect("/manage_member.html");
     }//改
 
     @RequestMapping(value = "/delete_member.html")
-    public void  deletememberSuccess(Member member,HttpServletRequest request,HttpServletResponse response)throws Exception{
+    public void  deletememberSuccess(Member member,Model model,HttpServletResponse response)throws Exception{
         memberService.deletemember(member.getMemberId());
-        List<Member> List = memberService.queryinrecord();
-        request.getSession().setAttribute("List",List);
+        List<Member> list = memberService.queryinrecord();
+        model.addAttribute("list",list);
         //
         response.sendRedirect("/manage_member.html");
         //return new ModelAndView ("manage_member");
