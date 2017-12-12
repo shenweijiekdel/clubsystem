@@ -39,7 +39,7 @@
             <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                     <ul class="text-uppercase">
-                        <li><a href="<c:url value="/add_member1.html"/>" class="active">新增用户</a></li>
+                        <li><a href="<c:url value="/add_member1.html"/>">新增用户</a></li>
 
                     </ul>
                 </nav>
@@ -52,19 +52,19 @@
             <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                 <tr>
-                    <td><a href="" class="white-text templatemo-sort-by">id <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">member name<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Password <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">sex <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">age<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">ID_number<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">address<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">telephone-number<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">avatar<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">money<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">weight<span class="caret"></span></a></td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <td><a href="" class="white-text templatemo-sort-by">用户ID <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">用户名<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">密码 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">性别 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">生日<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">会员卡号<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">家庭住址<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">联系方式<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">头像<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">￥<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">体重<span class="caret"></span></a></td>
+                    <td>编辑</td>
+                    <td>删除</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -84,8 +84,8 @@
                     <td>${member.money}</td>
                     <td>${member.weight}</td>
 
-                <td><a href="<c:url value="/change_member.html?memberId=${member.member_id}"/>">Edit</a></td>
-                <td><a href="<c:url value="/delete_member.html?memberId=${member.member_id}"/>">Delete</a></td>
+                <td><a href="<c:url value="/change_member.html?memberId=${member.member_id}"/>" class="btn btn-default">编辑</a></td>
+                <td><a href="<c:url value="/delete_member.html?memberId=${member.member_id}"/>" class="btn btn-danger">删除</a></td>
                 </tr>
                 </c:forEach>
                 </tr>
