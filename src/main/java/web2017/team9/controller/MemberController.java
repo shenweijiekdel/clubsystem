@@ -24,6 +24,7 @@ import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -166,6 +167,87 @@ try {
         }
         return new ModelAndView("foreIndex");
     }
+    @RequestMapping(value="/index.html")
+    public void memberPage(HttpServletResponse response)throws Exception{
+
+        response.sendRedirect("/manage_member.html");
+
+    }
+
+    @RequestMapping(value = "/add_member1.html")
+    public ModelAndView  addmember1(){
+
+        return new ModelAndView ("add_member");
+    }//增
+    public static boolean notNull(String str){
+        if(str!=null&&!str.equals("")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    @RequestMapping("/add_member")
+    public String savemember(Member member,HttpServletRequest request,HttpServletResponse response)throws Exception {
+        System.out.println("名字："+member.getMemberName());
+        if(notNull(member.getMemberName())&&notNull(member.getPassword())){
+            memberService.add(member);
+            List<Member> List = memberService.getAllUser();
+            request.setAttribute("list",List);
+            return "backManageMember";
+        }else{
+            if(!notNull(member.getMemberName())){
+                // System.out.println("111111");
+                request.setAttribute("nameerror","<span style='color:red;'>*用户名不能为空</span>");
+            }
+            if(!notNull(member.getPassword())){
+                //System.out.println("22222");
+                request.setAttribute("pswderror","<span style='color:red;'>*密码不能为空</span>");
+            }
+            request.setAttribute("memberinfo",member);
+            return "backAddMember";
+        }
+    }//增
+
+
+    @RequestMapping(value = "/change_member.html")
+    public ModelAndView change_member(HttpServletRequest request,Member Member){
+        Member member = memberService.getUserByUserId(Member.getMemberId());
+        request.getSession().setAttribute("member",member);
+        return new ModelAndView("backChangeMemberPassword");
+    }
+
+    @RequestMapping(value = "/change_memberpassword.html")
+    public void change_memberpassword(HttpServletRequest request,Member member,HttpServletResponse response)throws Exception{
+        System.out.println(member.toString());
+        memberService.changepassword(member);
+        List<Member> List = memberService.getAllUser();
+        request.getSession().setAttribute("List",List);
+        //request.setAttribute("List",List);
+        //return new ModelAndView("manage_member");
+        response.sendRedirect("/manage_member.html");
+    }//改
+
+    @RequestMapping(value = "/delete_member.html")
+    public void  deletememberSuccess(Member member,HttpServletRequest request,HttpServletResponse response)throws Exception{
+        memberService.deletemember(member.getMemberId());
+        List<Member> List = memberService.queryinrecord();
+        request.getSession().setAttribute("List",List);
+        //
+        response.sendRedirect("/manage_member.html");
+        //return new ModelAndView ("manage_member");
+    }//删除会员
+
+
+    @SuppressWarnings("unchecked")
+    @RequestMapping(value = "/manage_member.html")
+    public ModelAndView  inRecordmember(
+            HttpServletRequest request){
+        List<Member> list=memberService.queryinrecord();
+
+        request.setAttribute("list",list);
+        return new ModelAndView ("backManageMember");
+    }//显示会员列表
+
 
    /* @RequestMapping(value = "registerMemberJsp")
     public ModelAndView registerMemberJsp(){

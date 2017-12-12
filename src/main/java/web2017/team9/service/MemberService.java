@@ -66,4 +66,34 @@ public void b(Member member){
         return i;
 
     }
+    public List<Member> getAllUser(){
+        List<Member> List = memberDao.getAllUser();
+        return List;
+    }
+
+    public void deletemember(int member_id)
+    {
+        memberDao.deleteStaff(member_id);
+    }//删除用户
+
+    public void add(Member member) {
+
+        memberDao.addStaff(member);
+    }//添加会员
+
+    public void changepassword(Member member) {
+        memberDao.updatepassword(member);
+    }//改电话
+
+    @SuppressWarnings("rawtypes")
+    public  List queryinrecord() {
+
+        return memberDao.MessageOut();
+    }//查会员
+    //通过ID获取用户
+    public Member getUserByUserId(int member_id){
+        Member member = memberDao.getUserByUserId(member_id);
+        return member;
+    }
+
 }

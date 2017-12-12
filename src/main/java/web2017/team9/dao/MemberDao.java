@@ -168,4 +168,87 @@ public class MemberDao {
         objects.add(member.getMemberId());
         return jdbcTemplate.update(sql, objects.toArray());
     }
+    public List<Member> getAllUser(){
+        String sql = "SELECT * FROM t_member";
+
+        List List = jdbcTemplate.query(sql, new RowMapper<Object>() {
+            public Object mapRow(ResultSet resultSet, int i) throws SQLException {
+                Member staff = new Member();
+                staff.setMemberName(resultSet.getString("member_name"));
+                staff.setMemberId(resultSet.getInt("member_id"));
+                staff.setTel(resultSet.getString("tel"));
+                staff.setAddress(resultSet.getString("address"));
+                staff.setPassword(resultSet.getString("password"));
+                staff.setWeight(resultSet.getInt("weight"));
+                staff.setBirthday(resultSet.getDate("birthday"));
+                staff.setAvatar(resultSet.getString("avatar"));
+                staff.setSex(resultSet.getString("sex"));
+                staff.setIDNumber(resultSet.getString("ID_number"));
+                staff.setMoney(resultSet.getFloat("money"));
+                System.out.println(staff.getMemberName());
+                return staff;
+            }
+        });
+        return List;
+    }
+
+
+
+
+    public int updatepassword(Member staff) {
+        String sqlStr = " UPDATE t_member SET password=?,member_name=?,sex=?,birthday=?,ID_number=?,address=?,tel=?,avatar=?,money=?,weight=? WHERE member_id=? ";
+        Object[] args = {staff.getPassword(),staff.getMemberName(),staff.getSex(),staff.getBirthday(),staff.getIDNumber(),staff.getAddress(),staff.getTel(),staff.getAvatar(),staff.getMoney(),staff.getWeight(),staff.getMemberId()};
+        return jdbcTemplate.update(sqlStr, args);
+    }//改
+
+    public int addStaff(Member staff) {
+        String sqlStr =	" INSERT INTO t_member(member_name,password,sex,birthday,\n" +
+                "                ID_number,address,tel,avatar,money,weight) "
+                + "VALUES(?,?,?,?,?,?,?,?,?,?)";
+        Object[] args = { staff.getMemberName(),staff.getPassword(),staff.getSex(),staff.getBirthday(),
+                staff.getIDNumber(),staff.getAddress(),staff.getTel(),staff.getAvatar(),staff.getMoney(),staff.getWeight() };
+        return jdbcTemplate.update(sqlStr,args);
+    }//增
+    public void deleteStaff(int member_id) {
+        String sqlStr =	 "DELETE FROM t_member WHERE member_id="+member_id;
+        //System.out.println(member_id);
+        jdbcTemplate.update(sqlStr);
+
+    }//删
+
+    @SuppressWarnings("rawtypes")
+    public List MessageOut(){
+        String sqlStr = " SELECT * "
+                + " FROM t_member ";
+
+        List list = jdbcTemplate.queryForList(sqlStr);
+
+        return list;
+
+    }//查
+
+    //通过id获得用户
+    public Member getUserByUserId(int member_id){
+        String sql = "SELECT * FROM t_member WHERE member_id=?";
+        Object[] args = new Object[]{member_id};
+        final Member staff = new Member();
+        RowCallbackHandler rowCallbackHandler = new RowCallbackHandler() {
+            public void processRow(ResultSet resultSet) throws SQLException {
+                staff.setMemberName(resultSet.getString("member_name"));
+                staff.setMemberId(resultSet.getInt("member_id"));
+                staff.setTel(resultSet.getString("tel"));
+                staff.setAddress(resultSet.getString("address"));
+                staff.setPassword(resultSet.getString("password"));
+                staff.setWeight(resultSet.getInt("weight"));
+                staff.setBirthday(resultSet.getDate("birthday"));
+                staff.setAvatar(resultSet.getString("avatar"));
+                staff.setSex(resultSet.getString("sex"));
+                staff.setIDNumber(resultSet.getString("ID_number"));
+                staff.setMoney(resultSet.getFloat("money"));
+
+            }
+        };
+        jdbcTemplate.query(sql,args,rowCallbackHandler);
+        return staff;
+    }
 }

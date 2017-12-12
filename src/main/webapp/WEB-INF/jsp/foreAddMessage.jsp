@@ -88,27 +88,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- //banner -->
 	<!-- contact -->
 	<div class="contact agileits">
-		<div class="container">
-			<div class="w3ls-title">
+		<div class="container" >
+			<div class="w3ls-title"  >
 				<h3>添加留言</h3>
 			</div>   
-			<div class="contact-grids">
-				<div class="col-md-7 contact-form">
+			<div class="contact-grids" >
+				<div class="col-md-12 contact-form" style="text-align: center">
 					<form action="/foreAddMessage.html" method="post">
 						<%--<input type="text" name="title" placeholder="标题" required="">--%>
 						<textarea placeholder="内容" name="content" required=""></textarea>
 						<input type="submit" value="提交">
 					</form>
 				</div>
-				<div class="col-md-4 contact-right">
-					<div class="contact-text">
-						<h4>Working Hours :</h4>
-						<p> Monday – Saturday 5:00 a.m – 9:00 p.m </p>
-						<p>	Sunday 10 a.m – 4 p.m </p>
-						<p><span class="glyphicon glyphicon-earphone"></span> +11 999 8888 7777 </p> 
-					</div> 
-				</div> 
-				<div class="clearfix"> </div>	
+
 			</div>
 		</div>
 	</div>
