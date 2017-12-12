@@ -136,7 +136,6 @@ try {
 
         } else {
             String filename = head.getOriginalFilename();
-            System.out.println(filename);
             filename = filename.substring(filename.indexOf('.'));
             String path = this.getClass().getResource("/").getPath();
             path = path.replace("WEB-INF/classes", "images/avatar");
@@ -154,7 +153,6 @@ try {
                 e.printStackTrace();
             }*/
         }
-        System.out.println("session" + session.getAttribute("member"));
 
         return new ModelAndView("redirect:/foreUserInfo.html");
     }

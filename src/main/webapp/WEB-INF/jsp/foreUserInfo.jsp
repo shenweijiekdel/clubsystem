@@ -209,6 +209,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="col-md-6">
 						<div class="form-group">
 							<div class="input-group">
+								<div class="input-group-addon">密码</div>
+								<input type="password" class="form-control" placeholder="密码" name="password" value="${member.password}">
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">体重</div>
+								<input type="text" class="form-control" placeholder="体重" name="weight" value="${member.weight}">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<div class="input-group">
 								<div class="input-group-addon">生日</div>
 								<input type="date" class="form-control" placeholder="生日" name="birthday" value="${member.birthday}">
 							</div>

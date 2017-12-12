@@ -100,10 +100,10 @@ public class MemberDao {
 
     //会员注册
     public int registerMember(Member member) {
-        String sql = "INSERT INTO t_member(member_name,password,sex,birthday,ID_number,address,tel) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO t_member(member_name,password,sex,birthday,ID_number,address,tel,weight) VALUES(?,?,?,?,?,?,?,?)";
         Object[] args = new Object[]{
                 member.getMemberName(), member.getPassword(), member.getSex(),
-                member.getBirthday(), member.getIDNumber(), member.getAddress(), member.getTel()
+                member.getBirthday(), member.getIDNumber(), member.getAddress(), member.getTel(),member.getWeight()
         };
        return  jdbcTemplate.update(sql, args);
     }
@@ -150,6 +150,16 @@ public class MemberDao {
 
             sql += ",ID_number=?";
             objects.add(member.getIDNumber());
+        }
+        if (!"".equals(member.getPassword())) {
+
+            sql += ",password=?";
+            objects.add(member.getPassword());
+        }
+        if (!"".equals(member.getWeight())) {
+
+            sql += ",weight=?";
+            objects.add(member.getWeight());
         }
         if (!"".equals(member.getAddress())) {
             sql += ",address=?";

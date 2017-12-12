@@ -73,11 +73,11 @@
                                 <td>
                                     <c:if test="${coach.isoccupy}">
                                         已预约&nbsp;&nbsp;&nbsp;
-                                        <a href="/backUpdateCoachOccupy.html?coachId=${coach.coachId}&isOccupy=false">取消预约</a>
+                                        <%--<a href="/backUpdateCoachOccupy.html?coachId=${coach.coachId}&isOccupy=false">取消预约</a>--%>
                                     </c:if>
                                     <c:if test="${!coach.isoccupy}">
                                         未预约&nbsp;&nbsp;&nbsp;
-                                        <a href="/backUpdateCoachOccupy.html?coachId=${coach.coachId}&isOccupy=true">预约</a>
+                                        <%--<a href="/backUpdateCoachOccupy.html?coachId=${coach.coachId}&isOccupy=true">预约</a>--%>
                                     </c:if>
 
                                 </td>

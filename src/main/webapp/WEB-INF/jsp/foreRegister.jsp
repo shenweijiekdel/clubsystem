@@ -157,7 +157,7 @@
 				<div class="form-group" style="text-align: center">
 					<div class="input-group">
 						<div class="input-group-addon"><i class="fa fa-user-md fa-fw"></i></div>
-						<input type="number" class="form-control" placeholder="身份证号" name="IDNumber">
+						<input type="number" class="form-control" placeholder="会员卡号" name="IDNumber">
 
 					</div>
 					<span name="msg" style="color:red"></span>
@@ -178,7 +178,14 @@
 					</div>
 					<span name="msg" style="color:red"></span>
 				</div>
+				<div class="form-group" style="text-align: center">
+					<div class="input-group">
+						<div class="input-group-addon"><i class="fa fa-bank fa-fw"></i></div>
+						<input type="text" class="form-control" placeholder="体重" name="weight">
 
+					</div>
+					<span name="msg" style="color:red"></span>
+				</div>
 
 				<div class="row">
 
