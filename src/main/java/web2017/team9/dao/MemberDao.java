@@ -172,11 +172,11 @@ public class MemberDao {
 
             sql += ",weight=?";
             objects.add(member.getWeight());
+        sql += ",money=?";
+        objects.add(member.getMoney());
 
         sql += " WHERE member_id=?";
         objects.add(member.getMemberId());
-        System.out.println(sql);
-        System.out.println(Arrays.toString(objects.toArray()));
         return jdbcTemplate.update(sql, objects.toArray());
     }
     public List<Member> getAllUser(){

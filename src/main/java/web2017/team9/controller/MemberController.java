@@ -141,7 +141,7 @@ try {
 
         } else {
             String filename = head.getOriginalFilename();
-            System.out.println(filename);
+
             filename = filename.substring(filename.indexOf('.'));
             String path = this.getClass().getResource("/").getPath();
             path = path.replace("WEB-INF/classes", "images/avatar");
@@ -159,18 +159,19 @@ try {
                 e.printStackTrace();
             }*/
         }
-        System.out.println("session" + session.getAttribute("member"));
+        System.out.println("sessionNumber:" + session.getAttribute("member"));
 
         return new ModelAndView("redirect:/foreUserInfo.html");
     }
 
     @RequestMapping(value = "/foreRegister.html")
     public ModelAndView foreRegister(HttpSession session, Member member, Model model) {
+        System.out.println("RegistNumber:" + member);
         if (memberService.registerMember(member) > 0){
-
-        session.setAttribute("member", member);
+        Member loginMember = memberService.login(member.getMemberName(),member.getPassword());
+        session.setAttribute("member",loginMember);
         }
-        return new ModelAndView("foreIndex");
+        return new ModelAndView("redirect:/foreIndex.html");
     }
     @RequestMapping(value="/index.html")
     public void memberPage(HttpServletResponse response)throws Exception{
@@ -193,7 +194,6 @@ try {
     }
     @RequestMapping("/add_member")
     public String savemember(Member member,HttpServletRequest request,HttpServletResponse response)throws Exception {
-        System.out.println("名字："+member.getMemberName());
         if(notNull(member.getMemberName())&&notNull(member.getPassword())){
             memberService.add(member);
             List<Member> List = memberService.getAllUser();
@@ -223,8 +223,8 @@ try {
 
     @RequestMapping(value = "/change_memberpassword.html")
     public void change_memberpassword(Model model,Member member,HttpServletResponse response)throws Exception{
-        System.out.println(member.toString());
-        System.out.println(memberService.changepassword(member));
+
+        memberService.changepassword(member);
         List<Member> list = memberService.getAllUser();
         model.addAttribute("list",list);
         //request.setAttribute("List",List);

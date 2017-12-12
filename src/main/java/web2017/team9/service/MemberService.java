@@ -61,6 +61,7 @@ public void b(Member member){
     }
     public int changeUserInfo(Member member, HttpSession session){
         member.setMemberId(((Member)session.getAttribute("member")).getMemberId());
+        System.out.println("memberService:" + member);
         int i =  memberDao.updateMemberInfo(member);
         session.setAttribute("member",memberDao.getMemberByMemberName(member.getMemberName()));
         return i;

@@ -51,7 +51,7 @@
                 <div class="media margin-bottom-30">
                     <div class="media-left padding-right-25">
                         <a href="#">
-                            <img class="media-object img-circle templatemo-img-bordered" src="${redMember.avatar}" alt="这是头像">
+                            <img class="media-object img-circle templatemo-img-bordered" src="../image/avatar/${redMember.avatar}" alt="这是头像">
                         </a>
                     </div>
                     <div class="media-body">
@@ -99,7 +99,7 @@
                 <div class="media margin-bottom-30">
                     <div class="media-left padding-right-25">
                         <a href="#">
-                            <img class="media-object img-circle templatemo-img-bordered" src="${blueMember.avatar}" alt="这是头像">
+                            <img class="media-object img-circle templatemo-img-bordered" src="../image/avatar/${blueMember.avatar}" alt="这是头像">
                         </a>
                     </div>
                     <div class="media-body">
