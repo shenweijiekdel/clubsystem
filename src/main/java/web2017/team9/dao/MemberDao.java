@@ -99,13 +99,13 @@ public class MemberDao {
     }*/
 
     //会员注册
-    public void registerMember(Member member) {
+    public int registerMember(Member member) {
         String sql = "INSERT INTO t_member(member_name,password,sex,birthday,ID_number,address,tel) VALUES(?,?,?,?,?,?,?)";
         Object[] args = new Object[]{
                 member.getMemberName(), member.getPassword(), member.getSex(),
                 member.getBirthday(), member.getIDNumber(), member.getAddress(), member.getTel()
         };
-        jdbcTemplate.update(sql, args);
+       return  jdbcTemplate.update(sql, args);
     }
 
     public Member login(String memberName, String password) {

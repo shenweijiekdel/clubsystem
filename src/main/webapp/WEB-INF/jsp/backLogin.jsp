@@ -46,12 +46,12 @@
 		          	</div>	
 	        	</div>
 				<span style="text-align: center;color: red">${error}</span>
-	          	<div class="form-group">
+	          	<%--<div class="form-group">
 				    <div class="checkbox squaredTwo">
 				        <input type="checkbox" id="c1" name="cc" />
 						<label for="c1"><span></span>记住密码</label>
 				    </div>				    
-				</div>
+				</div>--%>
 				<div class="form-group">
 					<button type="submit" class="templatemo-blue-button width-100">登录</button>
 				</div>

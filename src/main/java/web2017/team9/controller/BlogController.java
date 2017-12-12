@@ -38,14 +38,15 @@ Member member = (Member) session.getAttribute("member");
     }
     @RequestMapping("/foreAddMessage")
     public ModelAndView addMessage(Model model, Message message, HttpSession session){
+
         message.setTime(new Date());
-        System.out.println(message);
+
          /*设置member,从session里取出来*/
 
         message.setMember((Member) session.getAttribute("member"));
 
         messageService.addMessage(message);
-        return new ModelAndView("foreAddMessage");
+        return new ModelAndView("redirect:foreBlog.html");
     }
     @RequestMapping("/foreSingle")
     public ModelAndView single(Model model,int messageId){

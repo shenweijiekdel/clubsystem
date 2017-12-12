@@ -44,7 +44,9 @@ public void b(Member member){
     member.setMemberName("cc");
 }
     //用户注册
-    public void registerMember(Member member){memberDao.registerMember(member);}
+    public int registerMember(Member member){
+    return memberDao.registerMember(member);
+}
 
     public Member login(String memberName, String password) {
         return memberDao.login(memberName,password);

@@ -62,13 +62,13 @@
 	        	<div class="form-group">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-		              	<input type="text" class="form-control" placeholder="用户名" name="memberName" value="${member.memberName}">
+		              	<input type="text" class="form-control" placeholder="用户名" name="memberName" value="${memberCookie.memberName}">
 		          	</div>
 	        	</div>
 	        	<div class="form-group" style="text-align: center">
 	        		<div class="input-group">
 		        		<div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div>
-		              	<input type="password" class="form-control" placeholder="密码" name="password" value="${member.password}">
+		              	<input type="password" class="form-control" placeholder="密码" name="password" value="${memberCookie.password}">
 
 		          	</div>
 					<span id="msg" style="color:red">${msg}</span>
@@ -93,7 +93,8 @@
 				<div class="form-group">
 					<div class="checkbox squaredTwo">
 
-						<input type="checkbox" id="c1" name="cc" />
+						<input type="checkbox" id="c1" name="cc" value="true"
+								<c:if test="${!empty memberCookie}">checked="checked"</c:if>/>
 						<label for="c1"><span></span>记住密码</label>
 					</div>
 				</div>
