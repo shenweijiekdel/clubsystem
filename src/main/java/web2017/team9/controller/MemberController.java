@@ -182,7 +182,7 @@ try {
     @RequestMapping(value = "/add_member1.html")
     public ModelAndView  addmember1(){
 
-        return new ModelAndView ("add_member");
+        return new ModelAndView ("backAddMember");
     }//增
     public static boolean notNull(String str){
         if(str!=null&&!str.equals("")){
@@ -195,7 +195,7 @@ try {
     public String savemember(Member member,HttpServletRequest request,HttpServletResponse response)throws Exception {
         System.out.println("名字："+member.getMemberName());
         if(notNull(member.getMemberName())&&notNull(member.getPassword())){
-            memberService.add(member);
+            memberService.registerMember(member);
             List<Member> List = memberService.getAllUser();
             request.setAttribute("list",List);
             return "backManageMember";

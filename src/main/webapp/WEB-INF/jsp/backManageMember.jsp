@@ -39,7 +39,7 @@
             <div class="row">
                 <nav class="templatemo-top-nav col-lg-12 col-md-12">
                     <ul class="text-uppercase">
-                        <li><a href="<c:url value="/add_member1.html"/>" class="active">新增用户</a></li>
+                        <li><a href="<c:url value="/add_member1.html"/>">新增用户</a></li>
 
                     </ul>
                 </nav>
@@ -80,12 +80,12 @@
                     <td>${member.ID_number}</td>
                     <td>${member.address}</td>
                     <td>${member.tel}</td>
-                    <td>../image/avatar/${member.avatar}</td>
+                    <td>${member.avatar}</td>
                     <td>${member.money}</td>
                     <td>${member.weight}</td>
 
-                <td><a href="<c:url value="/change_member.html?memberId=${member.member_id}"/>">Edit</a></td>
-                <td><a href="<c:url value="/delete_member.html?memberId=${member.member_id}"/>">Delete</a></td>
+                <td><a href="<c:url value="/change_member.html?memberId=${member.member_id}"/>" class="btn btn-default">编辑</a></td>
+                <td><a href="<c:url value="/delete_member.html?memberId=${member.member_id}"/>" class="btn btn-danger">删除</a></td>
                 </tr>
                 </c:forEach>
                 </tr>
@@ -93,24 +93,25 @@
             </table>
 
 
-            <%--<div class="pagination-wrap">--%>
-                <%--<ul class="pagination">--%>
-                    <%--<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>--%>
-                    <%--<li><a href="#">2</a></li>--%>
-                    <%--<li><a href="#">3 </a></li>--%>
-                    <%--<li><a href="#">4</a></li>--%>
-                    <%--<li><a href="#">5</a></li>--%>
-                    <%--<li>--%>
-                        <%--<a href="#" aria-label="Next">--%>
-                            <%--<span aria-hidden="true"><i class="fa fa-play"></i></span>--%>
-                        <%--</a>--%>
-                    <%--</li>--%>
-                <%--</ul>--%>
-            <%--</div>--%>
-            <%--<footer class="text-right">--%>
-                <%--<p>Copyright &copy; 2084 Company Name--%>
-                    <%--| Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>--%>
-            <%--</footer>--%>
+            <div class="pagination-wrap">
+                <ul class="pagination">
+                    <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3 </a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa fa-play"></i></span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+            <footer class="text-right">
+                <p>Copyright &copy; 2084 Company Name
+                    | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
+            </footer>
         </div>
     </div>
 </div>
