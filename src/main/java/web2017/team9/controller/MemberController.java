@@ -153,14 +153,7 @@ try {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-           /* try {
-                pictureService.addPhotoByAlbumId( photo,albumId,path,filename);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }*/
         }
-        System.out.println("sessionNumber:" + session.getAttribute("member"));
-
         return new ModelAndView("redirect:/foreUserInfo.html");
     }
 

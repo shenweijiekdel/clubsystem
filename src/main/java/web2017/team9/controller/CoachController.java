@@ -7,15 +7,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import web2017.team9.domain.Coach;
 import web2017.team9.service.CoachServise;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by WSF on 2017/12/11.
@@ -42,8 +47,26 @@ public class CoachController {
         return  new ModelAndView("backAddCoach");
     }
     @RequestMapping(value = "backAddCoach")
-    public ModelAndView backAddCoach(Coach coach,Model model){
-        coachServise.addCoach(coach);
+    public ModelAndView backAddCoach(Coach coach, Model model, @RequestParam MultipartFile head, HttpSession session){
+        try {
+            if (head.isEmpty()) {
+
+                coachServise.addCoach(coach,null,null,null);
+
+            } else {
+                String filename = head.getOriginalFilename();
+
+                filename = filename.substring(filename.indexOf('.'));
+                String path = this.getClass().getResource("/").getPath();
+                path = path.replace("WEB-INF/classes", "images/avatar");
+                filename = UUID.randomUUID().toString() + filename;
+                coach.setPicture(filename);
+
+                coachServise.addCoach(coach, path, filename, head);
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         List<Coach> coachList = coachServise.getAllCoach();
         model.addAttribute("coachList",coachList);
         return new ModelAndView("backManageCoach");

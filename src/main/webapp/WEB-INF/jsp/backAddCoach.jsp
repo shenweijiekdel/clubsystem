@@ -46,7 +46,7 @@
       <div class="templatemo-content-container">
         <div class="templatemo-content-widget white-bg">
 
-          <form action="/backAddCoach.html" class="templatemo-login-form" method="post">
+          <form action="/backAddCoach.html" class="templatemo-login-form" method="post" enctype="multipart/form-data">
             <div class="row form-group">
               <div class="col-lg-6 col-md-6 form-group">
 
@@ -56,6 +56,8 @@
                 <input type="date" class="form-control" name="coachBirth">
                 <label >入职日期</label>
                 <input type="date" class="form-control" name="coachEntrydate">
+                <label >照片</label>
+                <input type="file" name="head">
                 <br>性别：
                 <input type="radio" name="gender" id="1" value="男" checked>
                 <label for="1"  class="font-weight-400"><span></span>男</label>

@@ -26,8 +26,8 @@ public class CoachDao {
      * @param coach
      */
     public void addCoach(Coach coach) {
-        String sql = "insert into t_coach(coach_name,coach_birth,coach_entrydate,gender) values(?,?,?,?)";
-        Object[] args = new Object[]{coach.getCoachName(), coach.getCoachBirth(), coach.getCoachEntrydate(), coach.getGender()};
+        String sql = "insert into t_coach(coach_name,coach_birth,coach_entrydate,gender,picture) values(?,?,?,?,?)";
+        Object[] args = new Object[]{coach.getCoachName(), coach.getCoachBirth(), coach.getCoachEntrydate(), coach.getGender(),coach.getPicture()};
         jdbcTemplate.update(sql, args);
     }
 
@@ -81,6 +81,7 @@ public class CoachDao {
                 coach.setCoachName(resultSet.getString("coach_name"));
                 coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
                 coach.setGender(resultSet.getString("gender"));
+                coach.setPicture(resultSet.getString("picture"));
             }
         };
         jdbcTemplate.query(sql, args, rowCallbackHandler);
@@ -104,6 +105,7 @@ public class CoachDao {
                     coach.setCoachEntrydate(resultSet.getDate("coach_entrydate"));
                     coach.setCoachName(resultSet.getString("coach_name"));
                     coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
+                    coach.setPicture(resultSet.getString("picture"));
                     coach.setGender(resultSet.getString("gender"));
                     coachList.add(coach);
                 } while (resultSet.next());
@@ -132,6 +134,7 @@ public class CoachDao {
                     coach.setCoachName(resultSet.getString("coach_name"));
                     coach.setIsoccupy(resultSet.getBoolean("is_occupy"));
                     coach.setGender(resultSet.getString("gender"));
+                    coach.setPicture(resultSet.getString("picture"));
                     coach.setCoachBirth(resultSet.getDate("coach_birth"));
                     coachList.add(coach);
                 } while (resultSet.next());

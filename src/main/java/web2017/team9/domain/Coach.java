@@ -12,6 +12,7 @@ public class Coach {
     private Date coachEntrydate;
     private boolean isoccupy;
     private String gender;
+    private String picture;
 
     @Override
     public String toString() {
@@ -23,6 +24,14 @@ public class Coach {
                 ", isoccupy=" + isoccupy +
                 ", gender='" + gender + '\'' +
                 '}';
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public String getGender() {

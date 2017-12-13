@@ -1,10 +1,15 @@
 package web2017.team9.service;
 
+import com.sun.istack.internal.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import web2017.team9.dao.CoachDao;
 import web2017.team9.domain.Coach;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -14,7 +19,12 @@ import java.util.List;
 public class CoachServise {
     @Autowired
     private CoachDao coachDao;
-    public void addCoach(Coach coach) {
+    @Transactional(rollbackFor = Throwable.class)
+    public void addCoach(Coach coach, String path, String filename, MultipartFile pictrue) throws IOException{
+        if (pictrue != null){
+            pictrue.transferTo(new File(path + filename));
+        }
+
         coachDao.addCoach(coach);
     }
     public void updateCoach(Coach coach){
@@ -53,4 +63,5 @@ public class CoachServise {
         }
         return coachList;
     }
+
 }
