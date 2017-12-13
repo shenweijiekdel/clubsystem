@@ -51,11 +51,11 @@
                                 <c:forEach items="${albums}" var="album">
                                     <div class="col-md-4 gallery-grid">
 
-                    <div class="wpf-demo-4" >
+                    <div class="wpf-demo-4" style="width: 300px;height: 300px">
 
                         <a href="/backManagePhoto.html?albumId=${album.id}" class="jzBoxLink item-hover" title="Trendy Furnish" style="width: 300px;height: 300px;">
 
-                                    <img src="${album.photos.size() >= 1?'/images/album/'.concat(album.photos.get(0).src):'images/g1.jpg'}" alt=" " class="img-responsive" />
+                                    <img src="${album.photos.size() >= 1?'/images/album/'.concat(album.photos.get(0).src):'images/g1.jpg'}" alt=" " class="img-responsive" style="width: 300px;height: 300px"/>
                             <div class="view-caption">
                                 <p>查看相册</p>
 

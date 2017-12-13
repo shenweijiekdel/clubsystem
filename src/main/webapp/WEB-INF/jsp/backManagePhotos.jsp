@@ -67,12 +67,9 @@
                                     <c:forEach items="${photos}" var="photo">
                                         <li data-type="buildings" data-id="g001">
 
-                                            <a href="#" class="delete">delete</a> <a href="#">edit</a>
-                                            <a href="img/gallery/image_01.jpg"
-                                            >view</a>
 
-                                            <a href="img/gallery/image_01.jpg" class="popup">
-                                                <img src="/images/album/${photo.src}" alt=""/>
+                                            <a href="/images/album/${photo.src}" class="popup" style="width: 300px;height: 300px">
+                                                <img src="/images/album/${photo.src}" alt="" style="width: 300px;height: 300px"/>
 
                                             </a>
                                         </li>

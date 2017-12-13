@@ -94,36 +94,34 @@
             </div>--%>
             <div class="blog-text">
                 <%--<h4>Integer interdum eros vitae sem ultrices sed eleifend tellus tincidunt</h4>--%>
-                <p>${message.content}</p>
+
                 <div class="article-links">
                     <ul>
                         <li><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i><span>${message.time}</span></li>
                         <li><a href="#"><i class="glyphicon glyphicon-user" aria-hidden="true"></i><span>${message.member.memberName}</span></a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><span>${empty message.commentList ? 0:message.commentList.size()}</span></a></li>
-                        <%--<li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i><span>View posts</span></a></li>--%>
-                        <%--<li><a href="#"><i class="glyphicon glyphicon-link" aria-hidden="true"></i><span>Permalink</span></a></li>--%>
                     </ul>
                 </div>
             </div>
         </div>
-        <!-- admin-text -->
         <div class="admin-text">
-            <h5>${message.member.memberName}</h5>
-            <div class="admin-text-left">
-                <a href="#"><img src="../../images/avatar/${message.member.avatar}" alt="" style="width: 100px;height: 100px;"/></a>
+            <div class="cow">
+                <div class="col-md-2">
+                    <h5>${message.member.memberName}</h5>
+                    <div class="admin-text-left">
+                        <a href="#"><img src="../../images/avatar/${message.member.avatar}" alt="" style="width: 100px;height: 100px;"/></a>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="admin-text-right">
+
+                        <p>${message.content}</p>
+                    </div>
+                </div>
             </div>
-            <%--<div class="admin-text-right">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span>View all posts by:<a href="#"> Admin </a></span>
-            </div>--%>
             <div class="clearfix"> </div>
         </div>
-        <!-- //admin-text -->
-        <!-- related-posts -->
 
-        <!-- //related-posts -->
-        <!-- comments -->
         <div class="comment-grid-top">
             <h3>评论</h3>
             <c:forEach items="${message.commentList}" var="comment">
