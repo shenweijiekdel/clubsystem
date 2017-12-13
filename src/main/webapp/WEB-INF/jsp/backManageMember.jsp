@@ -52,17 +52,17 @@
             <table class="table table-striped table-bordered templatemo-user-table">
                 <thead>
                 <tr>
-                    <td><a href="" class="white-text templatemo-sort-by">id <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">member name<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">Password <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">sex <span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">age<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">ID_number<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">address<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">telephone-number<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">avatar<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">money<span class="caret"></span></a></td>
-                    <td><a href="" class="white-text templatemo-sort-by">weight<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">编号 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">名字<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">密码 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">性别 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">出生年月<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">会员号<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">地址<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">电话<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">头像<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">余额<span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">体重<span class="caret"></span></a></td>
                     <td>Edit</td>
                     <td>Delete</td>
                 </tr>
@@ -80,7 +80,7 @@
                     <td>${member.ID_number}</td>
                     <td>${member.address}</td>
                     <td>${member.tel}</td>
-                    <td>${member.avatar}</td>
+                    <td>../image/avatar/${member.avatar}</td>
                     <td>${member.money}</td>
                     <td>${member.weight}</td>
 
@@ -93,24 +93,24 @@
             </table>
 
 
-            <div class="pagination-wrap">
-                <ul class="pagination">
-                    <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3 </a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true"><i class="fa fa-play"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <footer class="text-right">
-                <p>Copyright &copy; 2084 Company Name
-                    | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
-            </footer>
+            <%--<div class="pagination-wrap">--%>
+                <%--<ul class="pagination">--%>
+                    <%--<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>--%>
+                    <%--<li><a href="#">2</a></li>--%>
+                    <%--<li><a href="#">3 </a></li>--%>
+                    <%--<li><a href="#">4</a></li>--%>
+                    <%--<li><a href="#">5</a></li>--%>
+                    <%--<li>--%>
+                        <%--<a href="#" aria-label="Next">--%>
+                            <%--<span aria-hidden="true"><i class="fa fa-play"></i></span>--%>
+                        <%--</a>--%>
+                    <%--</li>--%>
+                <%--</ul>--%>
+            <%--</div>--%>
+            <%--<footer class="text-right">--%>
+                <%--<p>Copyright &copy; 2084 Company Name--%>
+                    <%--| Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>--%>
+            <%--</footer>--%>
         </div>
     </div>
 </div>

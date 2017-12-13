@@ -159,6 +159,7 @@ public class MemberDao {
         if (!"".equals(member.getPassword())) {
 
             sql += ",password=?";
+
             objects.add(member.getPassword());
         }
         if (!"".equals(member.getWeight())) {
