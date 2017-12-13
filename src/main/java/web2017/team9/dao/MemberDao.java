@@ -86,6 +86,7 @@ public class MemberDao {
                     member.setMemberName(resultSet.getString("member_name"));
                     member.setAddress(resultSet.getString("address"));
                     member.setBirthday(resultSet.getDate("birthday"));
+                    member.setAvatar(resultSet.getString("avatar"));
                     memberList.add(member);
                 } while (resultSet.next());
                 return memberList;
@@ -271,5 +272,44 @@ public class MemberDao {
         };
         jdbcTemplate.query(sql,args,rowCallbackHandler);
         return staff;
+    }
+
+
+    public  List<Member> getMemberByType(String type) {
+        final List<Member> memberList = new ArrayList<Member>();
+        String sql = "select * from t_member WHERE weight";
+        if (type.contains("+")){
+            type = type.replaceAll("[^0-9]","");
+            sql += ">" + Float.parseFloat(type);
+        }
+        else if (type.contains("-")){
+            type = type.replaceAll("[^0-9]","");
+            sql += "<" + Float.parseFloat(type);
+        } else{
+            type = type.replaceAll("[^0-9]","");
+            sql += "=" + Float.parseFloat(type);
+        }
+        System.out.println(sql);
+        return jdbcTemplate.queryForObject(sql, new RowMapper<List<Member>>() {
+            @Override
+            public List<Member> mapRow(ResultSet resultSet, int i) throws SQLException {
+                do {
+                    Member member = new Member();
+                    member.setMemberId(resultSet.getInt("member_id"));
+                    member.setWeight(resultSet.getFloat("weight"));
+                    member.setTel(resultSet.getString("tel"));
+                    member.setPassword(resultSet.getString("password"));
+                    member.setSex(resultSet.getString("sex"));
+                    member.setMoney(resultSet.getFloat("money"));
+                    member.setIDNumber(resultSet.getString("ID_number"));
+                    member.setMemberName(resultSet.getString("member_name"));
+                    member.setAddress(resultSet.getString("address"));
+                    member.setBirthday(resultSet.getDate("birthday"));
+                    member.setAvatar(resultSet.getString("avatar"));
+                    memberList.add(member);
+                } while (resultSet.next());
+                return memberList;
+            }
+        });
     }
 }

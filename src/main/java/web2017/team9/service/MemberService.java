@@ -67,6 +67,9 @@ public void b(Member member){
         return i;
 
     }
+    public List<Member> getMemberByType(String type){
+        return memberDao.getMemberByType(type);
+    }
     public List<Member> getAllUser(){
         List<Member> List = memberDao.getAllUser();
         return List;
