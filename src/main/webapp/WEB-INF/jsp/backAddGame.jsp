@@ -35,7 +35,6 @@
           $("select[name='blueMemberName']").empty();
           $.post("/getMemberByType.action",{type:$("select[name='typeName']").val()},function (data) {
 //              alert(data[1]["memberName"])
-              alert(data.length)
 
 
               for (var i=0; i<data.length; i++){
