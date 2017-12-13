@@ -16,6 +16,6 @@ public class ArrangeController {
 
     @RequestMapping(value = "arrangemet")
     public ModelAndView arrangemet() {
-return  new ModelAndView("");
+return  new ModelAndView("/");
     }
 }
