@@ -93,7 +93,7 @@
             </table>
 
 
-            <div class="pagination-wrap">
+            <%--<div class="pagination-wrap">
                 <ul class="pagination">
                     <li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
                     <li><a href="#">2</a></li>
@@ -111,7 +111,7 @@
             <footer class="text-right">
                 <p>Copyright &copy; 2084 Company Name
                     | Designed by <a href="http://www.templatemo.com" target="_parent">templatemo</a></p>
-            </footer>
+            </footer>--%>
         </div>
     </div>
 </div>
