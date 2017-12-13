@@ -69,7 +69,7 @@
 
 
                                             <a href="/images/album/${photo.src}" class="popup" style="width: 300px;height: 300px">
-                                                <img src="/images/album/${photo.src}" alt="" style="width: 300px;height: 300px"/>
+                                                <img src="/ images/album/${photo.src}" alt="" style="width: 300px;height: 300px"/>
 
                                             </a>
                                         </li>
