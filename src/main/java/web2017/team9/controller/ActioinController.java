@@ -17,7 +17,6 @@ public class ActioinController {
     @ResponseBody
     public List<Member> a(String type){
         List<Member> members = memberService.getMemberByType(type);
-        System.out.println(members);
         return members;
     }
 }

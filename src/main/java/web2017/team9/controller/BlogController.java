@@ -52,7 +52,6 @@ Member member = (Member) session.getAttribute("member");
     public ModelAndView single(Model model,int messageId){
        Message message = messageService.findMessageById(messageId);
         model.addAttribute("message",message);
-        System.out.println(message);
         return new ModelAndView("single");
     }
     @RequestMapping("/addComment")

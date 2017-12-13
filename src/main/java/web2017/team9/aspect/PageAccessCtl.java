@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class PageAccessCtl {
     @Around("execution( * web2017.team9.controller.HomeController.*(..))")
     public Object access(ProceedingJoinPoint joinPoint){
+        System.out.println("jinlaile");
         Object param = null;
         try {
             System.out.println("aa");

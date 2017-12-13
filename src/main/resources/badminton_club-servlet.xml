@@ -14,7 +14,8 @@
 ">
         <mvc:annotation-driven/>
     <context:component-scan base-package="web2017.team9.controller"/>
-
+<context:component-scan base-package="web2017.team9.aspect"/>
+    <context:annotation-config/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:viewClass="org.springframework.web.servlet.view.JstlView"
           p:prefix="/WEB-INF/jsp/"
