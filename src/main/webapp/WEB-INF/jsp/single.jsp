@@ -110,7 +110,7 @@
         <div class="admin-text">
             <h5>${message.member.memberName}</h5>
             <div class="admin-text-left">
-                <a href="#"><img src="../../images/avatar/${message.member.avatar}" alt=""/></a>
+                <a href="#"><img src="../../images/avatar/${message.member.avatar}" alt="" style="width: 100px;height: 100px;"/></a>
             </div>
             <%--<div class="admin-text-right">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,There are many variations of passages of Lorem Ipsum available,
