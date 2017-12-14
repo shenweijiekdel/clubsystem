@@ -109,14 +109,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <img class="img-responsive" src="../../images/avatar/${coach.picture}" alt="" style="width: 300px; height: 200px">
                             <div class="captn">
                                 <h4>${coach.coachName}</h4>
-                                <form action="/arrangemet.html">
-                                    <input type="hidden" name="coachId" value="${coach.coachId}">
-                                    <li>开始时间<input type="datetime" name="startTime"></li><br>
-                                    <li>结束时间<input type="datetime" name="endTime"></li><br>
-                                    <li><input type="submit" value="预约"></li>
-                                </form>
                                 <div class="captn-top">
-
+                                    <ul>
+                                        <li>${coach.}</li>
+                                    </ul>
                                 </div>
                                 <div class="social-icons">
                                     <ul>

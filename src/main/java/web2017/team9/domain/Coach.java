@@ -13,6 +13,7 @@ public class Coach {
     private boolean isoccupy;
     private String gender;
     private String picture;
+    private String introduction;
 
     @Override
     public String toString() {
@@ -24,6 +25,14 @@ public class Coach {
                 ", isoccupy=" + isoccupy +
                 ", gender='" + gender + '\'' +
                 '}';
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public String getPicture() {
